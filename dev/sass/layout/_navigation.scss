@@ -1,0 +1,45 @@
+.top {
+    display: flex;
+    width: 100%;
+    height: 115px;
+    background-color: transparent;
+    justify-content: space-between;
+    & > * {
+        line-height: 115px;
+        font-size: 90%;
+    }
+    &>a {
+        padding: 0 1rem;
+    }
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $white;
+        display: block;
+        text-align: center;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10%;
+    }
+    .social {
+        display: flex;
+        width: 10%;
+        margin-left: 3%;
+        a {
+            width: 2.5rem;
+        }
+    }
+    .static {
+        color: $white;
+        background-color: $white;
+        box-shadow: rgba(0, 0, 0, 0);
+    }
+    .scrolled {
+        color: $black;
+        background-color: $white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}

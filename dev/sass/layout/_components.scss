@@ -1,4 +1,5 @@
 .map {
+    display: none; /* a retirer plus tard */
     .mapouter {
         position: relative;
         text-align: right;
@@ -9,6 +10,30 @@
             background: none !important;
             height: 500px;
             width: 900px;
+        }
+    }
+}
+
+.burger {
+    position: relative;
+    width: 5rem;
+    span {
+        position: absolute;
+        left: 50%;
+        width: 1.65rem;
+        height: 2px;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        @include transition-eclair;
+        cursor: pointer;
+        &:hover {
+            background-color: $red;
+        }
+        &:first-child {
+            top: calc(55% - 1px);
+        }
+        &:last-child {
+            top: calc(45% - 1px);
         }
     }
 }

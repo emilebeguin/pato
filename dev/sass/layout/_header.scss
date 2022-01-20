@@ -1,0 +1,16 @@
+.full {
+    height: 100vh;
+}
+
+.half {
+    height: 50vh;
+}
+
+.contact header {
+    background-image: url(../../img/photos/heading-page-03.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    @include overlay-after ($bg: $black, $opacity: .6);
+}
