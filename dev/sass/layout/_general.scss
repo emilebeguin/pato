@@ -3,6 +3,20 @@ body {
 }
 
 .wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    &:first-of-type {
+        border-top: 3px solid $red;
+        position: fixed;
+    }
+}
+
+.wrapped {
     max-width: 1200px;
-    margin: 0 auto;
+    position: absolute;
+}
+
+img {
+    display: block;
 }
