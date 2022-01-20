@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Contact</title>
 
     <!-- favicon -->
     <link rel="icon" type="image/png" href="img/graphics/favicon.png">
+
+    <title>Contact</title>
 </head>
 
 <body>
@@ -42,7 +43,42 @@
         </div>
     </nav>
     <main class="contact">
-        <header class="general full"></header>
+        <header class="general half"></header>
+        <section class="map">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="900" height="500" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=R.%20Jules%20Cockx%206,%201160%20Auderghem&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    </iframe>
+                    <a href="https://putlocker-is.org"></a>
+                </div>
+            </div>
+        </section>
+        <section class="form">
+            <form action="contact" method="get">
+                <input type="text" name="firstname" id="firstname">
+                <input type="text" name="lastname" id="lastname">
+                <input type="tel" name="phone" id="phone">
+                <textarea name="message" id="message" cols="30" rows="10">Message</textarea>
+                <input type="submit" value="get">
+            </form>
+        </section>
+        <section class="info">
+            <div class="location">
+                <h3>Location</h3>
+                <p>8th floor, 379 Hudson St, New York, NY 10018</p>
+            </div>
+            <div class="call-us">
+                <h3>Call us</h3>
+                <p>(+1) 96 716 6879</p>
+            </div>
+            <div class="opening-hours">
+                <h3>Opening hours</h3>
+                <p>09:30 AM – 11:00 PM</p>
+                <p>Every Day</p>
+            </div>
+        </section>
     </main>
     <footer class="contact-info">
         <div class="contact">
