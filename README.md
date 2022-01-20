@@ -1,2 +1,2 @@
 # pato
-A practise for a restaurant website
+Practise for an example restaurant website

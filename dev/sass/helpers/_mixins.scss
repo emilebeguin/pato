@@ -1,0 +1,147 @@
+// mixin de transitions
+@mixin transition-eclair($scope: all, $duree: .3s, $delai: 0s) {
+    transition: $scope $duree ease-in-out $delai;
+}
+
+//flexer et centrer
+@mixin flex-auto ($display: flex, $direction: row, $justify: center, $align: center) {
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin gap-spacing {
+    padding: $gap;
+    gap: $gap;
+}
+
+@mixin type ($size: size) {
+    font-size: calc($size * .1em + $size * 1px);
+}
+
+//cover video
+@mixin cover-video () {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+//button
+@mixin button ($borderStyle: solid 1px, $border-radius: 0, $padding: 1em 1.5em, $color: #333) {
+    border: $border $color;
+    border-radius: $border-radius;
+    padding: $padding;
+    background-color: transparent;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+// overlay after
+@mixin overlay-after ($bg: #333, $opacity: .3, $z-index: -1) {
+    z-index: $z-index;
+    &::after {
+        background: $bg;
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: $opacity;
+        z-index: $z-index + 1;
+    }
+}
+
+// overlay before
+@mixin overlay-before ($bg: #333, $opacity: .3, $z-index: -1) {
+    z-index: $z-index;
+    &::before {
+        background: $bg;
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: $opacity;
+        z-index: $z-index + 2;
+    }
+}
+
+
+//carre 
+@mixin carre ($size: 150px) {
+    width: $size;
+    height: $size;
+}
+
+//cercle 
+@mixin cercle ($size: 150px) {
+    border-radius: 50%;
+    @include carre($size);
+}
+
+
+//nav
+@mixin nav-fixe ($background-color: #333,$color: #fff, $direction: row, $fixed: true) {
+    background-color: $background-color;
+
+    @if $fixed {
+        position: fixed;
+        top: 0;
+        right: 0;
+    } @else {
+        position: static;
+    }
+    width: 100%;
+    height: 2em;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: space-around;
+    align-items: center;
+    a {
+        display: block;
+        text-decoration: none;
+        color: $color;
+    }
+}
+
+// gradient with glass effet and blurred background
+@mixin gradient-glass ($angle: 320deg ) {
+    background: rgb(220,240,246);
+    background: linear-gradient(
+        $angle, 
+        rgba(220,240,246,1) 0%, 
+        rgba(245,253,255,0.76) 21%, 
+        rgba(255,255,255,0.58) 35%, 
+        rgba(255,255,255,1) 38%, 
+        rgba(255,255,255,0.72) 55%, 
+        rgba(255,255,255,0.88) 69%, 
+        rgba(255,255,255,1) 72%, 
+        rgba(255,255,255,0.30) 72%, 
+        rgba(254,255,255,0.77) 75%, 
+        rgba(252,255,255,1) 78%, 
+        rgba(253,255,255,0.60) 78%, 
+        rgba(238,251,255,1) 100%),;
+    backdrop-filter: blur(5px);
+}
+
+@mixin reflet-flou-dans-cercle {
+    position: absolute;
+    top: -10vh;
+    left: -10vh;
+    clip-path: circle(29vh at 108% 108%);
+    background-color: rgba($color: #fff, $alpha: .1);
+    box-shadow: 0 0 50px 50px rgba($color: #fff, $alpha: .1);
+    backdrop-filter: blur(3px);
+    z-index: 2;
+}
