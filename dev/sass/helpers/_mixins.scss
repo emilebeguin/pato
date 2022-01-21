@@ -146,3 +146,19 @@
     backdrop-filter: blur(3px);
     z-index: 2;
 }
+
+@mixin fontawesome-list ($padding: 1.3em) {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        &::before {
+            font-family: FontAwesome;
+            display: inline-block;
+            margin-left: calc (0 - $padding);
+            width: $padding;
+            margin-right: calc($padding / 2);
+        }
+    }
+}

@@ -14,9 +14,19 @@ body {
 
 .wrapped {
     max-width: 1200px;
-    position: absolute;
+    margin: 0 auto;
 }
 
 img {
     display: block;
+}
+
+a {
+    color: inherit;
+    opacity: inherit;
+    text-decoration: none;
+    @include transition-eclair;
+    &:hover  {
+        color: $red;
+    }
 }

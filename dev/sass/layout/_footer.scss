@@ -1,0 +1,123 @@
+
+footer {
+    width: 100%;
+    color: $grey;
+    padding: calc($gap * 5);
+    h1, h2, h3, h4, h5 {
+        color: $white;
+        text-transform: uppercase;
+    }
+    h1, h2, h3, h4, h5, p, li {
+        margin-bottom: $gap;
+    }
+    &.contact-info {
+        background-color: $dark;
+        height: fit-content;
+        .areas {
+            max-height: 50vh;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: .8fr 1fr;
+            gap: $gap;
+            grid-template-areas:
+            "contact  twitter   gallery"
+            "hours    twitter   gallery"
+            ;
+            .contact {
+                grid-area: contact;
+                @include fontawesome-list;
+                li {                 
+                    &.place {
+                        &::before {
+                            content: "\f041";
+                        }
+                    }
+                    &.phone {
+                        &::before {
+                            content: "\f095";
+                        }
+                    }
+                    &.mail {
+                        &::before {
+                            content: "\f0e0";
+                        }
+                    }
+                }
+            }
+            .hours {
+                grid-area: hours;
+            }
+            .twitter-feed {
+                grid-area: twitter;
+                display: flex;
+                flex-direction: column;
+                gap: $gap;
+                .tweet {
+                    .account {
+                        font-weight: normal;
+                        color: $red;
+                        &:before {
+                            content: "\f099";
+                            font-family: FontAwesome;
+                            color: $white;
+                            display: inline-block;
+                        }
+                    }
+                    a {
+                        color: $red;
+                    }
+                    .date {
+                        opacity: .5;
+                    }
+                }
+            }
+            .gallery {
+                grid-area: gallery;
+                .grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-rows: repeat(4, 1fr);
+                    gap: calc($gap * .75);
+                    a {
+                        display: block;
+                        width: 100%;
+                        img {
+                            width: 100%;
+                        }
+                        // cache les éléments après le 12e
+                        &:nth-of-type(n+13) {
+                            display: none;
+                        }
+                        &:hover {
+                            @include overlay-before (
+                                $bg: $red,
+                                $opacity: .6,
+                                $z-index: 2
+                                );
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.links {
+        width: 100%;
+        height: fit-content;
+        color: $white;
+        background-color: $black;
+        & > * {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+        }
+        .social {
+            a {
+                margin: $gap;
+            }
+        }
+        .credits p {
+            color: $grey;
+        }
+    }
+}

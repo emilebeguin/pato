@@ -9,3 +9,11 @@ body {
         font-family: 'Courgette', cursive;
     }
 }
+
+.heart {
+    font-size: 0;
+    &::before {
+        content: '\2764';
+        font-size: initial;
+    }
+}
