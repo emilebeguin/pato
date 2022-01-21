@@ -1,28 +1,99 @@
-.top {
+nav {
     display: flex;
-    width: 100%;
-    height: 115px;
-    background-color: transparent;
-    justify-content: space-between;
-    & > * {
-        line-height: 115px;
-        font-size: 90%;
+    &.bar {   
+        width: 100%;
+        height: 115px;
+        background-color: $black;
+        flex-direction: row;
+        justify-content: space-between;
+        & > * {
+            line-height: 115px;
+            font-size: 90%;
+        }
+        &>a {
+            padding: 0 1rem;
+        }
+        .links {
+            flex-direction: row;
+            width: 55%;
+            height: 100%;
+            color: $white;
+        }
     }
-    &>a {
-        padding: 0 1rem;
+    &.side {
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        padding: calc($gap * 2);
+        z-index: 3;
+        top: 0;
+        right: -100%;
+        background-color: $white;
+        width: 300px;
+        height: 100%;
+        .burger {
+            align-self: flex-start;
+            width: 100%;
+            &::before, &::after {
+                top: 0;
+                left: calc(100% - ($gap * 2) );
+                background-color: $black;
+                transform: translate(-100%);
+            }
+            &::before {
+                transform: rotate(-45deg);
+            }
+            &::after {
+                transform: rotate(45deg);
+            }
+        }
+        .links {
+            flex-direction: column;
+            width: 65%;
+            color: $black;
+            font-size: 80%;
+            a {
+                padding: 1em;
+            }
+            // le lien 'Reservation' bouge
+            // à la fin de la nav avec flex order !
+            a[title*="Reservation"] {
+                order: 2;
+                border-radius: 5px;
+                background-color: $black;
+                color: $white;
+                &:hover {
+                    background-color: $red;
+                }
+            }
+        }
+        .gallery {
+            h1, h2, h3, h4 {
+                text-align: center;
+                font-weight: normal;
+                padding: calc($gap * 2);
+            }
+        }
     }
     a {
         text-decoration: none;
         text-transform: uppercase;
-        color: $white;
         display: block;
         text-align: center;
+    }
+    h1, h2, h3, h4 {
+        text-transform: uppercase;
     }
     .logo {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 10%;
+    }
+    .links {
+        display: inherit;
+        flex-direction: inherit;
+        justify-content: inherit;
     }
     .social {
         display: flex;
@@ -41,5 +112,19 @@
         color: $black;
         background-color: $white;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .gallery {
+        padding: 10%;
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: calc($gap * .5);
+            a {
+                // cache les éléments après le 12e
+                &:nth-of-type(n+10) {
+                    display: none;
+                }
+            }
+        }
     }
 }

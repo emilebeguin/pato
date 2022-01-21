@@ -3,7 +3,7 @@ footer {
     width: 100%;
     color: $grey;
     padding: calc($gap * 5);
-    h1, h2, h3, h4, h5 {
+    h1, h2, h3, h4 {
         color: $white;
         text-transform: uppercase;
     }
@@ -55,7 +55,6 @@ footer {
                 .tweet {
                     .account {
                         font-weight: normal;
-                        color: $red;
                         &:before {
                             content: "\f099";
                             font-family: FontAwesome;
@@ -71,34 +70,7 @@ footer {
                     }
                 }
             }
-            .gallery {
-                grid-area: gallery;
-                .grid {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    grid-template-rows: repeat(4, 1fr);
-                    gap: calc($gap * .75);
-                    a {
-                        display: block;
-                        width: 100%;
-                        img {
-                            width: 100%;
-                        }
-                        // cache les éléments après le 12e
-                        &:nth-of-type(n+13) {
-                            display: none;
-                        }
-                        &:hover {
-                            @include overlay-before (
-                                $bg: $red,
-                                $opacity: .6,
-                                $z-index: 2
-                                );
-
-                        }
-                    }
-                }
-            }
+            
         }
     }
     &.links {
@@ -116,8 +88,10 @@ footer {
                 margin: $gap;
             }
         }
-        .credits p {
-            color: $grey;
+        .credits {
+            p {
+                color: $grey;
+            }
         }
     }
 }

@@ -45,6 +45,14 @@
     width: fit-content;
 }
 
+// hover
+@mixin hoverable {
+    @include transition-eclair;
+    &:hover  {
+        color: $red;
+    }
+}
+
 // overlay after
 @mixin overlay-after ($bg: #333, $opacity: .3, $z-index: -1) {
     z-index: $z-index;
