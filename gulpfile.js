@@ -17,7 +17,7 @@ my = {
     },
     prod: {
         root: "prod",
-        css: "prod/sass",
+        css: "prod/css",
         img: "prod/img",
         js: "prod/js"
     }

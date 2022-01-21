@@ -45,6 +45,27 @@
     width: fit-content;
 }
 
+// hover
+@mixin hoverable ($self: true, $children: false, $background: false) {
+    @include transition-eclair;
+    cursor: pointer;
+    &:hover  {
+        @if ($background) {
+            background-color: $red;
+        }
+        color: $red;
+        @if ($children) {
+            * {
+                @include transition-eclair;
+                @if ($background) {
+                    background-color: $red;
+                }
+                color: $red
+            }
+        }
+    }
+}
+
 // overlay after
 @mixin overlay-after ($bg: #333, $opacity: .3, $z-index: -1) {
     z-index: $z-index;
@@ -145,4 +166,20 @@
     box-shadow: 0 0 50px 50px rgba($color: #fff, $alpha: .1);
     backdrop-filter: blur(3px);
     z-index: 2;
+}
+
+@mixin fontawesome-list ($padding: 1.3em) {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        &::before {
+            font-family: FontAwesome;
+            display: inline-block;
+            margin-left: calc (0 - $padding);
+            width: $padding;
+            margin-right: calc($padding / 2);
+        }
+    }
 }

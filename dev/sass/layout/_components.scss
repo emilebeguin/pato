@@ -17,7 +17,8 @@
 .burger {
     position: relative;
     width: 5rem;
-    span {
+    &:before, &:after {
+        content: '';
         position: absolute;
         left: 50%;
         width: 1.65rem;
@@ -25,15 +26,46 @@
         transform: translate(-50%, -50%);
         background-color: $white;
         @include transition-eclair;
+    }
+    &:before {
+        top: calc(55% - 1px);
+    }
+    &:after {
+        top: calc(45% - 1px);
+    }
+    &:hover {
         cursor: pointer;
-        &:hover {
+        &:before, &:after {
             background-color: $red;
         }
-        &:first-child {
-            top: calc(55% - 1px);
-        }
-        &:last-child {
-            top: calc(45% - 1px);
+    }
+}
+
+.gallery {
+    grid-area: gallery;
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: calc($gap * .75);
+        a {
+            display: block;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+            // cache les éléments après le 12e
+            &:nth-of-type(n+13) {
+                display: none;
+            }
+            &:hover {
+                @include overlay-before (
+                    $bg: $red,
+                    $opacity: .6,
+                    $z-index: 2
+                    );
+
+            }
         }
     }
 }

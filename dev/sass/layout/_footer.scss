@@ -1,0 +1,97 @@
+
+footer {
+    width: 100%;
+    color: $grey;
+    padding: calc($gap * 5);
+    h1, h2, h3, h4 {
+        color: $white;
+        text-transform: uppercase;
+    }
+    h1, h2, h3, h4, h5, p, li {
+        margin-bottom: $gap;
+    }
+    &.contact-info {
+        background-color: $dark;
+        height: fit-content;
+        .areas {
+            max-height: 50vh;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: .8fr 1fr;
+            gap: $gap;
+            grid-template-areas:
+            "contact  twitter   gallery"
+            "hours    twitter   gallery"
+            ;
+            .contact {
+                grid-area: contact;
+                @include fontawesome-list;
+                li {                 
+                    &.place {
+                        &::before {
+                            content: "\f041";
+                        }
+                    }
+                    &.phone {
+                        &::before {
+                            content: "\f095";
+                        }
+                    }
+                    &.mail {
+                        &::before {
+                            content: "\f0e0";
+                        }
+                    }
+                }
+            }
+            .hours {
+                grid-area: hours;
+            }
+            .twitter-feed {
+                grid-area: twitter;
+                display: flex;
+                flex-direction: column;
+                gap: $gap;
+                .tweet {
+                    .account {
+                        font-weight: normal;
+                        &:before {
+                            content: "\f099";
+                            font-family: FontAwesome;
+                            color: $white;
+                            display: inline-block;
+                        }
+                    }
+                    a {
+                        color: $red;
+                    }
+                    .date {
+                        opacity: .5;
+                    }
+                }
+            }
+            
+        }
+    }
+    &.links {
+        width: 100%;
+        height: fit-content;
+        color: $white;
+        background-color: $black;
+        & > * {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+        }
+        .social {
+            a {
+                margin: $gap;
+            }
+        }
+        .credits {
+            p {
+                color: $grey;
+            }
+        }
+    }
+}
