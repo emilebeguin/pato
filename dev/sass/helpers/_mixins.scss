@@ -46,10 +46,23 @@
 }
 
 // hover
-@mixin hoverable {
+@mixin hoverable ($self: true, $children: false, $background: false) {
     @include transition-eclair;
+    cursor: pointer;
     &:hover  {
+        @if ($background) {
+            background-color: $red;
+        }
         color: $red;
+        @if ($children) {
+            * {
+                @include transition-eclair;
+                @if ($background) {
+                    background-color: $red;
+                }
+                color: $red
+            }
+        }
     }
 }
 

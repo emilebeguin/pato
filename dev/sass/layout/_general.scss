@@ -30,7 +30,7 @@ a {
     color: inherit;
     opacity: inherit;
     text-decoration: none;
-    @include hoverable;
+    @include hoverable($background: false);
 }
 
 aside {

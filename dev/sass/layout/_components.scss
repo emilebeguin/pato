@@ -17,7 +17,6 @@
 .burger {
     position: relative;
     width: 5rem;
-    height: 5rem;
     &:before, &:after {
         content: '';
         position: absolute;
