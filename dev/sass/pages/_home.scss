@@ -135,5 +135,63 @@
                 }
             }
         }
+        &.upcoming {
+            flex-direction: column;
+            .card {
+                background-color: $white;
+                color: $dark;
+                border-radius: $gap;
+                display: flex;
+                &>* {
+                    width: 50%;
+                }
+                .img-wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    overflow: hidden;
+                    border-radius: $gap 0 0 $gap;
+                    .time {
+                        width: 2em;
+                        text-align: center;
+                        padding: calc($gap * 2);
+                        margin-right: calc(0rem - (4 * $gap));
+                        margin-left: calc(0rem - $gap);
+                        background-color: rgba($color: $red, $alpha: .6);;
+                        color: $white;
+                        z-index: 2;
+                        writing-mode: vertical-lr;
+                    }
+                }
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    p {
+                        margin: $gap;
+                    }
+                    .counter {
+                        width: 90%;
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        grid-template-rows: 60% 40%;
+                        grid-auto-flow: column;
+                        text-align: center;
+                        font-weight: bold;
+                        p:nth-of-type(2n+1) {
+                            font-size: 4em;
+                            color: $red;
+                        }
+                        p:nth-of-type(2n) {
+                            font-size: unset;
+                            color: $grey;
+                        }
+                    }
+                    .button {
+                        text-align: left;
+                    }
+                }
+            }
+        }
     }
 }

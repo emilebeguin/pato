@@ -84,6 +84,12 @@ aside {
             background-image: url('../../img/photos/bg-intro-01.jpg');
         }
     }
+    &.upcoming {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../../img/photos/bg-event-01.jpg');
+    }
     &.dark {
         color: $white;
     }
