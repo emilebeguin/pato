@@ -1,0 +1,63 @@
+.home {
+   :not(header) {
+       .title {
+            .super {
+                color: $red;
+            }
+            h1 {
+                margin: 0;
+            }
+        }
+    }
+    section {
+        padding: calc($gap * 8);
+        gap: calc($gap * 8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        &.text-right {
+            &>* {width: 50%;}
+            .text {order: 0}
+            .pic {order: 1}
+        }
+        &.text-left {
+            &>* {width: 50%;}
+            .text {order: 1}
+            .pic {order: 0}
+        }
+        .text {
+            .title {
+                margin: 2.5em 0;
+                .super {
+                    font-size: 200%;
+                }
+                h1, h2, h3, h4 {
+                    font-size: 300%;
+                    letter-spacing: .5rem;
+                }
+            }
+            p:not(.super) {
+                margin: 2.5em 0;
+            }
+        }
+        .pic {
+            .img-wrapper {
+                width: 100%;
+                overflow: hidden;
+                &.soft-square {
+                    border-radius: $gap;
+                    aspect-ratio: 1;
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                    @include transition-eclair;
+                    &:hover {
+                        transform: scale(110%);
+                    }
+                }
+            }
+        }
+    }
+}

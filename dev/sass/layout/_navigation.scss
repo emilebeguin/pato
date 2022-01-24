@@ -3,7 +3,6 @@ nav {
     &.bar {   
         width: 100%;
         height: 115px;
-        background-color: $black;
         flex-direction: row;
         justify-content: space-between;
         & > * {
@@ -89,9 +88,6 @@ nav {
         display: block;
         text-align: center;
     }
-    h1, h2, h3, h4 {
-        text-transform: uppercase;
-    }
     .logo {
         display: flex;
         align-items: center;
@@ -109,6 +105,8 @@ nav {
         margin-left: 3%;
         a {
             width: 2.5rem;
+            color: $white;
+            @include hoverable;
         }
     }
     .static {

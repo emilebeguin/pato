@@ -69,3 +69,21 @@
         }
     }
 }
+
+.button {
+    padding: $gap calc($gap * 2);
+    border-radius: calc($gap / 2);
+    text-transform: uppercase;
+    &.look {
+        color: $red;
+        background-color: $white;
+        @include hoverable($background: true);
+    }
+    &.go {
+        @include hoverable;
+        &::after {
+            content: '→';
+            padding-left: $gap;
+        }
+    }
+}

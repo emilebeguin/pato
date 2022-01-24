@@ -3,6 +3,41 @@
     transition: $scope $duree ease-in-out $delai;
 }
 
+@mixin animation($nom, $duree: .3s, $delai: 0s) {
+    animation: $nom $duree ease-in-out $delai backwards;
+} 
+
+@keyframes up {
+    from {
+        transform: translateY(10vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes down {
+    from {
+        transform: translateY(-2vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes zoom {
+    from {
+        transform: scale(0%);
+        opacity: 0;
+    }
+    to {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
+
 //flexer et centrer
 @mixin flex-auto ($display: flex, $direction: row, $justify: center, $align: center) {
     display: $display;
@@ -52,13 +87,17 @@
     &:hover  {
         @if ($background) {
             background-color: $red;
+            color: $white;
         }
-        color: $red;
+        @else {
+            color: $red;
+        }
         @if ($children) {
             * {
                 @include transition-eclair;
                 @if ($background) {
                     background-color: $red;
+                    color: $white;
                 }
                 color: $red
             }
