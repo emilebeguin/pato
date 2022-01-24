@@ -11,11 +11,48 @@
     }
     section {
         padding: calc($gap * 8);
-        gap: calc($gap * 8);
+    }
+    section, article {
         display: flex;
         justify-content: center;
-        align-items: center;
-        text-align: center;
+        &.two-elements {
+            gap: calc($gap * 2.5);
+        }
+        &.three-elements {
+            gap: calc($gap * 1.75);
+        }
+        &.four-elements {
+            gap: calc($gap);
+        }
+        &.text-right, .text-left {
+            gap: calc($gap * 8);
+            align-items: center;
+            .text {
+                text-align: center;
+            }
+            .pic {
+                .soft {
+                    aspect-ratio: 1;
+                }
+            }
+        }
+        &.text-below {
+            .text {
+                .title {
+                    align-items: flex-start;
+                    padding-left: 0;
+                    h1, h2, h3 {
+                        text-align: left;
+                    }
+                }
+            }
+
+            .pic {
+                .soft {
+                    aspect-ratio: 16/9;
+                }
+            }
+        }
         &.text-right {
             &>* {width: 50%;}
             .text {order: 0}
@@ -26,13 +63,19 @@
             .text {order: 1}
             .pic {order: 0}
         }
+        &.text-below {
+            flex-direction: column;
+            &>* {height: 50%;}
+            .text {order: 1}
+            .pic {order: 0}
+        }
         .text {
             .title {
                 margin: 2.5em 0;
                 .super {
                     font-size: 200%;
                 }
-                h1, h2, h3, h4 {
+                h1, h2 {
                     font-size: 300%;
                     letter-spacing: .5rem;
                 }
@@ -45,9 +88,8 @@
             .img-wrapper {
                 width: 100%;
                 overflow: hidden;
-                &.soft-square {
+                &.soft {
                     border-radius: $gap;
-                    aspect-ratio: 1;
                 }
                 img {
                     display: block;

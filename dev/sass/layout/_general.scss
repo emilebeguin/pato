@@ -73,4 +73,18 @@ aside {
     &.beige {
         background-color: $beige;
     }
+    &.parallax {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        &#discover-1 {
+            background-image: url('../../img/photos/bg-intro-01.jpg');
+        }
+        &#discover-2 {
+            background-image: url('../../img/photos/bg-intro-01.jpg');
+        }
+    }
+    &.dark {
+        color: $white;
+    }
 }

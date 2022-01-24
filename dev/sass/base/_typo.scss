@@ -6,6 +6,11 @@ body {
         font-family: 'Poppins', 'Montserrat', sans-serif;
         text-transform: uppercase;
     }
+    h3 {
+        font-weight: normal;
+        font-size: calc(22px + .22vw);
+        letter-spacing: .1rem;
+    }
     .super {
         font-family: 'Courgette', cursive;
     }

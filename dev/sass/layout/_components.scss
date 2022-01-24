@@ -81,6 +81,7 @@
     }
     &.go {
         @include hoverable;
+        padding: calc($gap * 2) 0;
         &::after {
             content: '→';
             padding-left: $gap;
