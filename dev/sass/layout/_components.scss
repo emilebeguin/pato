@@ -71,8 +71,8 @@
 }
 
 .button {
-    padding: $gap calc($gap * 2);
-    border-radius: calc($gap / 2);
+    padding: $gap calc(1em * 2);
+    border-radius: calc(1em / 2);
     text-transform: uppercase;
     &.look {
         color: $red;
@@ -81,10 +81,10 @@
     }
     &.go {
         @include hoverable;
-        padding: calc($gap * 2) 0;
+        padding: calc(1em * 2) 0;
         &::after {
             content: '→';
-            padding-left: $gap;
+            padding-left: 1em;
         }
     }
 }
