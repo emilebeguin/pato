@@ -108,6 +108,7 @@
 // overlay after
 @mixin overlay-after ($bg: #333, $opacity: .3, $z-index: -1) {
     z-index: $z-index;
+    position: relative;
     &::after {
         background: $bg;
         position: absolute;
@@ -118,6 +119,9 @@
         left: 0;
         opacity: $opacity;
         z-index: $z-index + 1;
+    }
+    * {
+        z-index: $z-index + 2;
     }
 }
 

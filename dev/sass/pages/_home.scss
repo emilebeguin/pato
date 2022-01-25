@@ -251,6 +251,8 @@
             }
         }
         &#discover-2 {
+            // cause d'étranges problèmes de hover
+            // @include overlay-before ($bg: $black);
             .title {
                 z-index: 3;
             }
@@ -291,6 +293,34 @@
             flex-wrap: wrap;
             .title {
                 flex-basis: 100%;
+            }
+        }
+        &.sign-up {
+            form {
+                display: flex;
+                align-items: center;
+                h3 {
+                    width: fit-content;
+                    margin-right: -.4rem;
+                    width: 20rem;
+                }
+                .input:first-of-type {
+                    position: relative;
+                    &::after {
+                        content: "\f0e0";
+                        position: absolute;
+                        top: 1em;
+                        right: 1.5em;
+                        color: $grey;
+                        font-family: FontAwesome;
+                        margin-left: calc (0 - $gap);
+                        width: $gap;
+                    }
+                    input {
+                        width: 100%;
+                        width: 20rem;
+                    }
+                }
             }
         }
     }
