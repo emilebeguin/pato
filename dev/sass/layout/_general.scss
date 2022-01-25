@@ -94,3 +94,9 @@ aside {
         color: $white;
     }
 }
+
+// styles à la racine
+::selection, input::selection {
+    color: $white;
+    background: $red;
+}

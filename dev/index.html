@@ -168,6 +168,44 @@
                 </div>
             </div>
         </section>
+        <section class="book-table bg fabric text-right">
+            <div class="text">
+                <div class="title">
+                    <p class="super">Reservation</p>
+                    <h2>Book a table</h2>
+                </div>
+                <form action="bookTable" method="get">
+                    <div class="input">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="input">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="input">
+                        <label for="time">Time</label>
+                        <select list="time" id="time" name="time"></select>
+                    </div>
+                    <div class="input">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="input">
+                        <label for="people">People</label>
+                        <select list="people" id="people" name="people"></select>
+                    </div>
+                    <div class="input">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="input"><input class="button look" type="submit" value="Book a table"></div>
+                  </form>
+            </div>
+            <div class="pic">
+                <div class="img-wrapper soft"><img src="img/photos/booking-01.jpg" alt="Our tables are booked with bad photos included"></div>
+            </div>
+        </section>
     </main>
     <footer class="contact-info">
         <section class="wrapped areas">

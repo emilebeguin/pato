@@ -50,13 +50,15 @@
                 }
             }
         }
+        &.text-right, &.text-left {
+            .text { width: 60%; }
+            .pic { width: 40%; }
+        }
         &.text-right {
-            &>* {width: 50%;}
             .text {order: 0}
             .pic {order: 1}
         }
         &.text-left {
-            &>* {width: 50%;}
             .text {order: 1}
             .pic {order: 0}
         }
@@ -161,6 +163,9 @@
                         z-index: 2;
                         writing-mode: vertical-lr;
                     }
+                    img {
+                        width: 100%;
+                    }
                 }
                 .text {
                     display: flex;
@@ -179,11 +184,11 @@
                         text-align: center;
                         font-weight: bold;
                         p:nth-of-type(2n+1) {
-                            font-size: 4em;
+                            font-size: $relative-title;
                             color: $red;
                         }
                         p:nth-of-type(2n) {
-                            font-size: unset;
+                            font-size: calc($relative-title / 2);
                             color: $grey;
                         }
                     }
@@ -193,5 +198,6 @@
                 }
             }
         }
+
     }
 }
