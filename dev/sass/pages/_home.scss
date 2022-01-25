@@ -9,9 +9,13 @@
             }
         }
     }
-    section, article {
+    section, article, div.subsection {
         display: flex;
         justify-content: center;
+        // flex-wrap: wrap;
+        // .title {
+        //     flex-basis: 100%;
+        // }
         &.two-elements {
             gap: calc($gap * 2.5);
         }
@@ -281,6 +285,12 @@
                         border-color: transparent transparent transparent $white;
                     }
                 }
+            }
+        }
+        &.latest {
+            flex-wrap: wrap;
+            .title {
+                flex-basis: 100%;
             }
         }
     }
