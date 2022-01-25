@@ -81,7 +81,8 @@ aside {
             background-image: url('../../img/photos/bg-intro-01.jpg');
         }
         &#discover-2 {
-            background-image: url('../../img/photos/bg-intro-01.jpg');
+            background-image: url('../../img/photos/bg-intro-04.jpg');
+            // @include overlay-before ($bg: $black);
         }
     }
     &.upcoming {

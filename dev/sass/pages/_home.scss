@@ -198,6 +198,90 @@
                 }
             }
         }
-
+        &.reviews-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .review {
+                width: 75%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $dark;
+                text-align: center;
+                .img-wrapper {
+                    border-radius: 999px;
+                    overflow: hidden;
+                    width: fit-content;
+                    height: fit-content;
+                    border: calc($gap / 4) solid $red;
+                    margin: calc($gap *2);
+                    img {
+                        height: calc($gap * 8);
+                    }
+                }
+                figure {
+                    &>* {
+                        margin: calc($gap / 2);
+                    }
+                    .stars {
+                        --percent: calc(var(--rating) / 5 * 100%);
+                        
+                        display: inline-block;
+                        font-size: calc($gap * 2);
+                        // font-family: Times;
+                        line-height: 1;
+                        
+                        &::before {
+                          content: '★★★★★';
+                          letter-spacing: 3px;
+                          background: linear-gradient(
+                              90deg,
+                              $red var(--percent),
+                              $grey var(--percent));
+                          background-clip: text;
+                          -webkit-text-fill-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+        &#discover-2 {
+            .title {
+                z-index: 3;
+            }
+            .play-button {
+                position: relative;
+                width: calc($gap * 4);
+                height: calc($gap * 4);
+                display: block;
+                border-radius: 999px;
+                padding: 0;
+                margin: 0 auto;
+                user-select: none;
+                background-color: $white;
+                @include transition-eclair;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-40%, -50%);
+                    display: block;
+                    border-color: transparent transparent transparent $black;
+                    border-style: solid;
+                    border-width: .6rem 0 .6rem 1rem;
+                    @include transition-eclair;
+                }
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgba($color: $red, $alpha: .6);
+                    transform: scale(120%);
+                    &::after {
+                        border-color: transparent transparent transparent $white;
+                    }
+                }
+            }
+        }
     }
 }

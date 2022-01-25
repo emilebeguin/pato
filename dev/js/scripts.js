@@ -67,6 +67,10 @@ function createOptionsTime(select, startTime, endTime, interval) {
             f_min = minute.toString().padStart(2, '0')
             var option = document.createElement("option")
             option.setAttribute("value", f_hour + "." + f_min);
+            // default option is the first
+            if (hour == startHour && minute == 0) {
+                option.setAttribute("selected", "selected");
+            }
             option.innerHTML = f_hour + ":" + f_min;
             select.appendChild(option);
         }
