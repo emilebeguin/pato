@@ -28,11 +28,9 @@ header {
         background-image: url(../../img/photos/slide1-01.jpg);
         .title {
             p {
-                font-size: 300%;
                 @include animation ($nom: down, $duree: .8s)
             }
             h1, h2, h3 {
-                font-size: 600%;
                 letter-spacing: .4rem;
                 @include animation ($nom: up, $duree: 1.2s, $delai: .6s)
             }

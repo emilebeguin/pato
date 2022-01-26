@@ -4,6 +4,18 @@
         height: fit-content;
         .container {
             margin: calc($gap * 7.5) auto;
+            @media screen and (max-width: $small-screen) {
+                max-width: $tablet;
+                margin: calc($gap * 3.75) auto;
+            }
+            @media screen and (max-width: $tablet) {
+                max-width: calc($smartphone - ($gap * 4));
+                margin: calc($gap * 2) auto;
+            }
+            @media screen and (max-width: $smartphone) {
+                max-width: 400px;
+                margin: calc($gap) auto;
+            }
         }
         h3 {
             margin: $gap 0;
@@ -17,7 +29,19 @@
     form {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        @media screen and (max-width: $tablet) {
+            // je ne comprends pas pourquoi
+            // cette ligne ne s'applique pas
+            grid-template-columns: 1fr;
+            // du coup je fais ça :
+            div {
+                grid-column: span 3;
+            }
+        }
         margin: 0 calc($gap * 7.5);
+        @media screen and (max-width: $small-screen) {
+            margin: 0;
+        }
         .message {
             grid-column: span 3;
         }
@@ -27,7 +51,18 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            @media screen and (max-width: $tablet) {
+                flex-direction: column;
+            }
             div {
+                width: 30%;
+                @media screen and (max-width: $tablet) {
+                    width: 50%;
+                    margin-left: 10%;
+                    h3 {
+                        text-align: left;
+                    }
+                }
                 h3 {
                     color: $dark;
                     &::before {
@@ -37,6 +72,9 @@
                         width: $gap;
                         margin-right: $gap;
                     }
+                }
+                p {
+                    color: $grey;
                 }
                 &.place {
                     h3::before {

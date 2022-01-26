@@ -1,17 +1,17 @@
 .home {
-    .title {
-        :not(header) {
-                .super {
-            color: $red;
+    div.container, article, div.subsection, .bg.dark {
+        .title {
+            .super {
+                color: $red;
             }
         }
     }
     div.container, article, div.subsection {
         display: flex;
-        // flex-wrap: wrap;
-        // .title {
-        //     flex-basis: 100%;
-        // }
+        &.two-elements, &.three-elements, &.four-elements,
+        &.text-right, &.text-left {
+            @include convert-to-vertical($resize-items: full, $screen: $tablet);
+        }
         &.two-elements {
             gap: calc($gap * 2.5);
         }
@@ -21,8 +21,11 @@
         &.four-elements {
             gap: calc($gap);
         }
-        &.text-right, .text-left {
+        &.text-right, &.text-left {
             gap: calc($gap * 8);
+            @media screen and (max-width: $tablet) {
+                gap: calc($gap * 2);
+            }
             align-items: center;
             .text {
                 text-align: center;
@@ -56,8 +59,16 @@
                 p {
                     width: 80%;
                 }
+                @media screen and (max-width: $tablet) {
+                    width: 100%;
+                }
             }
-            .pic { width: 40%; }
+            .pic {
+                width: 40%;
+                @media screen and (max-width: $tablet) {
+                    width: 65%;
+                }
+            }
         }
         &.text-right {
             .text {order: 0}
@@ -71,7 +82,15 @@
             flex-direction: column;
             .text {order: 1}
             .pic {order: 0}
-            .p {min-height: 5em;}
+            .text {
+                p:not(.super) {
+                    min-height: 5em;
+                    @media screen and (max-width: $tablet) {
+                        min-height: 1em;
+                    }
+                }
+                // h3 {min-height: 2em;}
+            }
         }
         .text {
             align-items: center;
@@ -101,6 +120,9 @@
     }
     section {
         padding: calc($gap * 8);
+        @media screen and (max-width: $tablet) {
+            padding: calc($gap * 4);
+        }
         .table-layout {
             display: grid;
             gap: calc($gap * 2);
@@ -109,6 +131,18 @@
             "one   two     ."
             "three three   ."
             ;
+            @media screen and (max-width: $tablet) {
+                grid-template-areas:
+                "one   two"
+                "one   two"
+                "three three"
+                ;
+                .img-wrapper {
+                    &:nth-of-type(n+4) {
+                        grid-column: span 2;
+                    }
+                }
+            }
             .img-wrapper {
                 &:nth-of-type(1) { grid-area: one; }
                 &:nth-of-type(2) { grid-area: two; }
@@ -173,11 +207,11 @@
                         text-align: center;
                         font-weight: bold;
                         p:nth-of-type(2n+1) {
-                            font-size: $relative-title;
+                            font-size: calc($relative-title * 2.5);
                             color: $red;
                         }
                         p:nth-of-type(2n) {
-                            font-size: calc($relative-title / 2);
+                            font-size: calc($relative-title);
                             color: $grey;
                         }
                     }
@@ -201,6 +235,9 @@
             align-items: center;
             .review {
                 width: 75%;
+                @media screen and (max-width: $smartphone) {
+                    width: 100%;
+                }
                 display: flex;
                 flex-direction: column;
                 align-items: center;
