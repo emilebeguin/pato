@@ -25,6 +25,16 @@ body {
 
 .wrapped {
     max-width: 1200px;
+    width: calc($small-screen - $gap);
+    @media screen and (max-width: $small-screen) {
+        max-width: calc($small-screen - ($gap * 10));
+    }
+    @media screen and (max-width: $tablet) {
+        max-width: calc($tablet - ($gap * 10));
+    }
+    @media screen and (max-width: $smartphone) {
+        max-width: calc($smartphone - ($gap * 10));
+    }
     margin: 0 auto;
 }
 

@@ -26,6 +26,26 @@ footer {
             "contact  twitter   gallery"
             "hours    twitter   gallery"
             ;
+            @media screen and (max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: fit-content;
+                grid-template-areas:
+                "contact  twitter"
+                "hours    twitter"
+                "gallery  gallery"
+                // j'ai mis la galerie pleine largeur
+                // parce que c'est clairement mieux ^^
+                ;
+            }
+            @media screen and (max-width: $smartphone) {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                "contact"
+                "hours"
+                "twitter"
+                "gallery"
+                ;
+            }
             .contact {
                 grid-area: contact;
                 @include fontawesome-list;
@@ -87,6 +107,10 @@ footer {
             display: flex;
             flex-flow: row;
             justify-content: space-between;
+            @include convert-to-vertical (
+                $screen: $tablet,
+                $resize-items: full
+            )
         }
         .social {
             a {
