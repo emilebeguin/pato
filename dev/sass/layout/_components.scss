@@ -1,15 +1,13 @@
 .map {
-    display: none; /* a retirer plus tard */
     .mapouter {
         position: relative;
         text-align: right;
         height: 500px;
-        width: 900px;
+        width: 100%;
         .gmap_canvas {
             overflow: hidden;
             background: none !important;
             height: 500px;
-            width: 900px;
         }
     }
 }
@@ -99,7 +97,7 @@ form {
         display: flex;
         flex-direction: column;
         &:last-of-type {
-            grid-column: span 2;
+            grid-column: 1/-1;
             align-items: center;
         }
         label {
@@ -107,16 +105,15 @@ form {
             font-size: 80%;
             margin-bottom: calc($gap / 3);
         }
-        input, select {
+        input, select, textarea {
             font: inherit;
             padding: 1.75em 1em;
             font-size: 80%;
         }
-        input:not([type="submit"]), select {
+        input:not([type="submit"]), select, textarea {
             height: calc($gap * 2);
             border-radius: calc($gap / 2);
-            border: 0;
-            outline: 2px solid #d9d9d9;
+            border: 2px solid #d9d9d9;
             &:focus {
                 border: 0;
                 outline: 2px solid $red;
@@ -136,7 +133,10 @@ form {
                     color: $white;
                 }
             }
-          }
+        }
+        textarea {
+            height: calc($gap * 10);
+        }
         input[type="submit"].button {
             width: fit-content;
             background-color: $black;

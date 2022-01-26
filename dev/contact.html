@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <section class="wrapper">
+    <section class="wrapper-nav">
         <nav class="wrapped bar static">
             <div class="logo">
                 <a href="index.html" title="Home"><img src="img/graphics/logo.png" alt="Pato logo"></a>
@@ -35,7 +35,8 @@
                 <a href="contact.html" title="to Contact">Contact</a>
             </div>
             <div class="social">
-                <a href="http://www.tripadvisor.com" title="Tripadvisor"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
+                <a href="http://www.tripadvisor.com" title="Tripadvisor"><i class="fa fa-tripadvisor"
+                        aria-hidden="true"></i></a>
                 <a href="http://www.facebook.com" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a href="http://www.twitter.com" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
@@ -43,40 +44,62 @@
         </nav>
     </section>
     <main class="contact bg fabric">
-        <header class="general half"></header>
+        <header class="general half">
+            <h1>Contact</h1>
+        </header>
         <section class="map">
-            <div class="mapouter">
-                <div class="gmap_canvas">
-                    <iframe width="900" height="500" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=R.%20Jules%20Cockx%206,%201160%20Auderghem&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                    </iframe>
-                    <a href="https://putlocker-is.org"></a>
+            <div class="container">
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe width="100%" height="500" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=R.%20Jules%20Cockx%206,%201160%20Auderghem&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                        <a href="https://putlocker-is.org"></a>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="form">
-            <form action="contact" method="get">
-                <input type="text" name="firstname" id="firstname">
-                <input type="text" name="lastname" id="lastname">
-                <input type="tel" name="phone" id="phone">
-                <textarea name="message" id="message" cols="30" rows="10">Message</textarea>
-                <input type="submit" value="get">
-            </form>
+            <div class="container">
+                <div class="title">
+                    <h3>Leave us a message</h3>
+                </div>
+                <form action="contact" method="get">
+                    <div class="input">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="input">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="input">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="input message">
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                    </div>
+                    <div class="input"><input class="button look" type="submit" value="Submit"></div>
+                </form>
+            </div>
         </section>
         <section class="info">
-            <div class="location">
-                <h3>Location</h3>
-                <p>8th floor, 379 Hudson St, New York, NY 10018</p>
-            </div>
-            <div class="call-us">
-                <h3>Call us</h3>
-                <p>(+1) 96 716 6879</p>
-            </div>
-            <div class="opening-hours">
-                <h3>Opening hours</h3>
-                <p>09:30 AM – 11:00 PM</p>
-                <p>Every Day</p>
+            <div class="container">
+                <div class="place">
+                    <h3>Location</h3>
+                    <p>8th floor, 379 Hudson St, New York, NY 10018</p>
+                </div>
+                <div class="phone">
+                    <h3>Call us</h3>
+                    <p>(+1) 96 716 6879</p>
+                </div>
+                <div class="clock">
+                    <h3>Opening hours</h3>
+                    <p>09:30 AM – 11:00 PM</p>
+                    <p>Every Day</p>
+                </div>
             </div>
         </section>
     </main>
@@ -99,39 +122,62 @@
                 <h3>Latest Twitter</h3>
                 <div class="tweet">
                     <h5 class="account"><a href="#" title="Visit Colorlib website">@colorlib</a></h5>
-                    <p class="content">Activello is a good option. It has a slider built into that displays the featured image in the slider. <a href="https://buff.ly/2zaSfAQ">https://buff.ly/2zaSfAQ</a></p>
+                    <p class="content">Activello is a good option. It has a slider built into that displays the featured
+                        image in the slider. <a href="https://buff.ly/2zaSfAQ">https://buff.ly/2zaSfAQ</a></p>
                     <p class="date">21 Dec 2017</p>
                 </div>
                 <div class="tweet">
                     <h5 class="account"><a href="#" title="Visit Colorlib website">@colorlib</a></h5>
-                    <p class="content">Activello is a good option. It has a slider built into that displays <a href="https://buff.ly/2zaSfAQ">https://buff.ly/2zaSfAQ</a></p>
+                    <p class="content">Activello is a good option. It has a slider built into that displays <a
+                            href="https://buff.ly/2zaSfAQ">https://buff.ly/2zaSfAQ</a></p>
                     <p class="date">21 Dec 2017</p>
                 </div>
             </div>
             <div class="gallery">
                 <h3>Gallery</h3>
                 <div class="grid">
-                    <a href="#" title="Gallery image 01" alt="Gallery image 01"><img src="img/photos/photo-gallery-thumb-01.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 02" alt="Gallery image 02"><img src="img/photos/photo-gallery-thumb-02.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 03" alt="Gallery image 03"><img src="img/photos/photo-gallery-thumb-03.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 04" alt="Gallery image 04"><img src="img/photos/photo-gallery-thumb-04.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 05" alt="Gallery image 05"><img src="img/photos/photo-gallery-thumb-05.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 06" alt="Gallery image 06"><img src="img/photos/photo-gallery-thumb-06.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 07" alt="Gallery image 07"><img src="img/photos/photo-gallery-thumb-07.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 08" alt="Gallery image 08"><img src="img/photos/photo-gallery-thumb-08.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 09" alt="Gallery image 09"><img src="img/photos/photo-gallery-thumb-09.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 10" alt="Gallery image 10"><img src="img/photos/photo-gallery-thumb-10.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 11" alt="Gallery image 11"><img src="img/photos/photo-gallery-thumb-11.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 12" alt="Gallery image 12"><img src="img/photos/photo-gallery-thumb-12.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 13" alt="Gallery image 13"><img src="img/photos/photo-gallery-thumb-13.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 14" alt="Gallery image 14"><img src="img/photos/photo-gallery-thumb-14.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 15" alt="Gallery image 15"><img src="img/photos/photo-gallery-thumb-15.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 16" alt="Gallery image 16"><img src="img/photos/photo-gallery-thumb-16.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 17" alt="Gallery image 17"><img src="img/photos/photo-gallery-thumb-17.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 18" alt="Gallery image 18"><img src="img/photos/photo-gallery-thumb-18.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 19" alt="Gallery image 19"><img src="img/photos/photo-gallery-thumb-19.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 20" alt="Gallery image 20"><img src="img/photos/photo-gallery-thumb-20.jpg" alt=""></a>
-                    <a href="#" title="Gallery image 21" alt="Gallery image 21"><img src="img/photos/photo-gallery-thumb-21.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 01" alt="Gallery image 01"><img
+                            src="img/photos/photo-gallery-thumb-01.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 02" alt="Gallery image 02"><img
+                            src="img/photos/photo-gallery-thumb-02.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 03" alt="Gallery image 03"><img
+                            src="img/photos/photo-gallery-thumb-03.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 04" alt="Gallery image 04"><img
+                            src="img/photos/photo-gallery-thumb-04.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 05" alt="Gallery image 05"><img
+                            src="img/photos/photo-gallery-thumb-05.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 06" alt="Gallery image 06"><img
+                            src="img/photos/photo-gallery-thumb-06.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 07" alt="Gallery image 07"><img
+                            src="img/photos/photo-gallery-thumb-07.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 08" alt="Gallery image 08"><img
+                            src="img/photos/photo-gallery-thumb-08.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 09" alt="Gallery image 09"><img
+                            src="img/photos/photo-gallery-thumb-09.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 10" alt="Gallery image 10"><img
+                            src="img/photos/photo-gallery-thumb-10.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 11" alt="Gallery image 11"><img
+                            src="img/photos/photo-gallery-thumb-11.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 12" alt="Gallery image 12"><img
+                            src="img/photos/photo-gallery-thumb-12.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 13" alt="Gallery image 13"><img
+                            src="img/photos/photo-gallery-thumb-13.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 14" alt="Gallery image 14"><img
+                            src="img/photos/photo-gallery-thumb-14.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 15" alt="Gallery image 15"><img
+                            src="img/photos/photo-gallery-thumb-15.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 16" alt="Gallery image 16"><img
+                            src="img/photos/photo-gallery-thumb-16.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 17" alt="Gallery image 17"><img
+                            src="img/photos/photo-gallery-thumb-17.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 18" alt="Gallery image 18"><img
+                            src="img/photos/photo-gallery-thumb-18.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 19" alt="Gallery image 19"><img
+                            src="img/photos/photo-gallery-thumb-19.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 20" alt="Gallery image 20"><img
+                            src="img/photos/photo-gallery-thumb-20.jpg" alt=""></a>
+                    <a href="#" title="Gallery image 21" alt="Gallery image 21"><img
+                            src="img/photos/photo-gallery-thumb-21.jpg" alt=""></a>
                 </div>
             </div>
         </section>
@@ -139,12 +185,14 @@
     <footer class="links">
         <section class="wrapped">
             <div class="social">
-                <a href="http://www.tripadvisor.com" title="Tripadvisor"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
+                <a href="http://www.tripadvisor.com" title="Tripadvisor"><i class="fa fa-tripadvisor"
+                        aria-hidden="true"></i></a>
                 <a href="http://www.facebook.com" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a href="http://www.twitter.com" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
             <div class="credits">
-                <p>Copyright © 2018 All rights reserved | This template is made with <span class="heart">love</span> by <a href="#" title="Visit Colorlib website">Colorlib</a></p>
+                <p>Copyright © 2018 All rights reserved | This template is made with <span class="heart">love</span> by
+                    <a href="#" title="Visit Colorlib website">Colorlib</a></p>
             </div>
         </section>
     </footer>
