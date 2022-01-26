@@ -1,7 +1,12 @@
 .home {
-    .title {
-        .super {
-            color: $red;
+   :not(header) {
+       .title {
+            .super {
+                color: $red;
+            }
+            h1 {
+                margin: 0;
+            }
         }
     }
     section, article, div.subsection {
@@ -71,6 +76,16 @@
             flex-direction: column;
         }
         .text {
+            .title {
+                margin: 2.5em 0;
+                .super {
+                    font-size: 200%;
+                }
+                h1, h2 {
+                    font-size: 300%;
+                    letter-spacing: .5rem;
+                }
+            }
             p:not(.super) {
                 margin: 2.5em 0;
             }
