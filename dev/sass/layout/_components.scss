@@ -115,7 +115,8 @@ form {
         input:not([type="submit"]), select {
             height: calc($gap * 2);
             border-radius: calc($gap / 2);
-            border: 2px solid #d9d9d9;
+            border: 0;
+            outline: 2px solid #d9d9d9;
             &:focus {
                 border: 0;
                 outline: 2px solid $red;

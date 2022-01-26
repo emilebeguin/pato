@@ -23,3 +23,14 @@ body {
         font-size: initial;
     }
 }
+
+.title {
+    margin: 2.5em 0;
+    .super {
+        font-size: 200%;
+    }
+    h1, h2 {
+        font-size: 300%;
+        letter-spacing: .5rem;
+    }
+}
