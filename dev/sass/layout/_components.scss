@@ -1,17 +1,10 @@
-.map {
-    .mapouter {
-        position: relative;
-        text-align: right;
-        height: 500px;
-        width: 100%;
-        .gmap_canvas {
-            overflow: hidden;
-            background: none !important;
-            height: 500px;
-        }
-    }
+// styles à la racine
+::selection, input::selection {
+    color: $white;
+    background: $red;
 }
 
+// burger menu
 .burger {
     position: relative;
     width: 5rem;
@@ -39,6 +32,7 @@
     }
 }
 
+// galerie dans footer et sidenav
 .gallery {
     grid-area: gallery;
     .grid {
@@ -68,6 +62,7 @@
     }
 }
 
+// tous les boutons
 .button {
     padding: $gap calc(1em * 2);
     border-radius: calc(1em / 2);
@@ -87,12 +82,14 @@
     }
 }
 
+// formulaires dans home et contact
 form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto-fill;
     gap: $gap;
     div {
+        padding: .5rem;
         flex-basis: 30%;
         display: flex;
         flex-direction: column;
@@ -113,9 +110,9 @@ form {
         input:not([type="submit"]), select, textarea {
             height: calc($gap * 2);
             border-radius: calc($gap / 2);
-            border: 2px solid #d9d9d9;
+            border: 0;
+            outline: 2px solid #d9d9d9;
             &:focus {
-                border: 0;
                 outline: 2px solid $red;
             }
             &[type="date"]::-webkit-inner-spin-button {
@@ -142,6 +139,21 @@ form {
             background-color: $black;
             color: $white;
             padding: 1em 2em;
+        }
+    }
+}
+
+// carte google
+.map {
+    .mapouter {
+        position: relative;
+        text-align: right;
+        height: 500px;
+        width: 100%;
+        .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            height: 500px;
         }
     }
 }

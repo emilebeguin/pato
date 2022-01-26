@@ -6,6 +6,11 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
+    &.vertical {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .wrapper-nav {
@@ -78,10 +83,16 @@ aside {
     &.beige {
         background-color: $beige;
     }
+    &.center-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     &.parallax {
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        height: 720px;
         &#discover-1 {
             background-image: url('../../img/photos/bg-intro-01.jpg');
         }
@@ -98,10 +109,4 @@ aside {
     &.dark {
         color: $white;
     }
-}
-
-// styles à la racine
-::selection, input::selection {
-    color: $white;
-    background: $red;
 }

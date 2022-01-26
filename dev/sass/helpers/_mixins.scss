@@ -226,3 +226,78 @@
         }
     }
 }
+
+// adapation du display en vertical
+@mixin convert-to-vertical($display: flex, $screen: $small-screen, $resize-items: $width, $gap: 2rem) {
+    @if ($screen == $small-screen) {
+            @media screen and (max-width: $small-screen) {
+            @if ($display == flex) {
+                flex-direction: column;
+                gap: $gap;
+                @if ($resize-items == default) {
+                    &>* { width: unset; }
+                } @else if ($resize-items == full) {
+                    &>* { width: 100%; }
+                } @else {
+                    &>* { width: $width }
+                }
+            }
+        }
+    } @else if ($screen == $tablet) {
+        @media screen and (max-width: $tablet) {
+            @if ($display == flex) {
+                flex-direction: column;
+                gap: $gap;
+                @if ($resize-items == default) {
+                    &>* { width: unset; }
+                } @else if ($resize-items == full) {
+                    &>* { width: 100%; }
+                } @else {
+                    &>* { width: $width }
+                }
+            }
+        }
+    } @else {
+        @media screen and (max-width: $smartphone) {
+            @if ($display == flex) {
+                flex-direction: column;
+                gap: $gap;
+                @if ($resize-items == default) {
+                    &>* { width: unset; }
+                } @else if ($resize-items == full) {
+                    &>* { width: 100%; }
+                } @else {
+                    &>* { width: $width }
+                }
+            }
+        }
+    }
+}
+
+// s'applique sur un container ; /!\ utilise flex
+@mixin side-ribbon ($resize: $small-screen) {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    @media screen and (max-width: $resize) {
+        flex-direction: column;
+    }
+    .side-ribbon {
+        width: 2em;
+        text-align: center;
+        padding: calc($gap * 2);
+        margin-right: calc(0rem - (4 * $gap));
+        margin-left: calc(0rem - $gap);
+        z-index: 2;
+        writing-mode: vertical-lr;
+        @media screen and (max-width: $resize) {
+            width: 100%;
+            height: 2em;
+            writing-mode: horizontal-tb;
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: calc(0rem - (4 * $gap));
+            margin-top: calc(0rem - $gap);
+        }
+    }
+}
