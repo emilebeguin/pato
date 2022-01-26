@@ -3,7 +3,16 @@ $black: #222;
 $dark: #333;
 $grey: #999;
 $white: #fff;
+$beige: #fed;
 $red: #e12;
 
 // layout measures
 $gap: 1rem;
+
+// font sizes
+$relative-title: calc(1.5em + 1.5vw);
+
+// responsive breakpoints
+$small-screen: 992px;
+$tablet: 768px;
+$smartphone: 575px

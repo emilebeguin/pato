@@ -3,6 +3,41 @@
     transition: $scope $duree ease-in-out $delai;
 }
 
+@mixin animation($nom, $duree: .3s, $delai: 0s) {
+    animation: $nom $duree ease-in-out $delai backwards;
+} 
+
+@keyframes up {
+    from {
+        transform: translateY(10vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes down {
+    from {
+        transform: translateY(-2vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes zoom {
+    from {
+        transform: scale(0%);
+        opacity: 0;
+    }
+    to {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
+
 //flexer et centrer
 @mixin flex-auto ($display: flex, $direction: row, $justify: center, $align: center) {
     display: $display;
@@ -52,13 +87,17 @@
     &:hover  {
         @if ($background) {
             background-color: $red;
+            color: $white;
         }
-        color: $red;
+        @else {
+            color: $red;
+        }
         @if ($children) {
             * {
                 @include transition-eclair;
                 @if ($background) {
                     background-color: $red;
+                    color: $white;
                 }
                 color: $red
             }
@@ -69,6 +108,7 @@
 // overlay after
 @mixin overlay-after ($bg: #333, $opacity: .3, $z-index: -1) {
     z-index: $z-index;
+    position: relative;
     &::after {
         background: $bg;
         position: absolute;
@@ -79,6 +119,9 @@
         left: 0;
         opacity: $opacity;
         z-index: $z-index + 1;
+    }
+    * {
+        z-index: $z-index + 2;
     }
 }
 
@@ -180,6 +223,81 @@
             margin-left: calc (0 - $padding);
             width: $padding;
             margin-right: calc($padding / 2);
+        }
+    }
+}
+
+// adapation du display en vertical
+@mixin convert-to-vertical($display: flex, $screen: $small-screen, $resize-items: $width, $gap: 2rem) {
+    @if ($screen == $small-screen) {
+            @media screen and (max-width: $small-screen) {
+            @if ($display == flex) {
+                flex-direction: column;
+                gap: $gap;
+                @if ($resize-items == default) {
+                    &>* { width: unset; }
+                } @else if ($resize-items == full) {
+                    &>* { width: 100%; }
+                } @else {
+                    &>* { width: $width }
+                }
+            }
+        }
+    } @else if ($screen == $tablet) {
+        @media screen and (max-width: $tablet) {
+            @if ($display == flex) {
+                flex-direction: column;
+                gap: $gap;
+                @if ($resize-items == default) {
+                    &>* { width: unset; }
+                } @else if ($resize-items == full) {
+                    &>* { width: 100%; }
+                } @else {
+                    &>* { width: $width }
+                }
+            }
+        }
+    } @else {
+        @media screen and (max-width: $smartphone) {
+            @if ($display == flex) {
+                flex-direction: column;
+                gap: $gap;
+                @if ($resize-items == default) {
+                    &>* { width: unset; }
+                } @else if ($resize-items == full) {
+                    &>* { width: 100%; }
+                } @else {
+                    &>* { width: $width }
+                }
+            }
+        }
+    }
+}
+
+// s'applique sur un container ; /!\ utilise flex
+@mixin side-ribbon ($resize: $small-screen) {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    @media screen and (max-width: $resize) {
+        flex-direction: column;
+    }
+    .side-ribbon {
+        width: 2em;
+        text-align: center;
+        padding: calc($gap * 2);
+        margin-right: calc(0rem - (4 * $gap));
+        margin-left: calc(0rem - $gap);
+        z-index: 2;
+        writing-mode: vertical-lr;
+        @media screen and (max-width: $resize) {
+            width: 100%;
+            height: 2em;
+            writing-mode: horizontal-tb;
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: calc(0rem - (4 * $gap));
+            margin-top: calc(0rem - $gap);
         }
     }
 }

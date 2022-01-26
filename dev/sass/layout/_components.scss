@@ -1,19 +1,10 @@
-.map {
-    display: none; /* a retirer plus tard */
-    .mapouter {
-        position: relative;
-        text-align: right;
-        height: 500px;
-        width: 900px;
-        .gmap_canvas {
-            overflow: hidden;
-            background: none !important;
-            height: 500px;
-            width: 900px;
-        }
-    }
+// styles à la racine
+::selection, input::selection {
+    color: $white;
+    background: $red;
 }
 
+// burger menu
 .burger {
     position: relative;
     width: 5rem;
@@ -41,6 +32,7 @@
     }
 }
 
+// galerie dans footer et sidenav
 .gallery {
     grid-area: gallery;
     .grid {
@@ -66,6 +58,102 @@
                     );
 
             }
+        }
+    }
+}
+
+// tous les boutons
+.button {
+    padding: $gap calc(1em * 2);
+    border-radius: calc(1em / 2);
+    text-transform: uppercase;
+    &.look {
+        color: $red;
+        background-color: $white;
+        @include hoverable($background: true);
+    }
+    &.go {
+        @include hoverable;
+        padding: calc(1em * 2) 0;
+        &::after {
+            content: '→';
+            padding-left: 1em;
+        }
+    }
+}
+
+// formulaires dans home et contact
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto-fill;
+    gap: $gap;
+    div {
+        padding: .5rem;
+        flex-basis: 30%;
+        display: flex;
+        flex-direction: column;
+        &:last-of-type {
+            grid-column: 1/-1;
+            align-items: center;
+        }
+        label {
+            text-align: left;
+            font-size: 80%;
+            margin-bottom: calc($gap / 3);
+        }
+        input, select, textarea {
+            font: inherit;
+            padding: 1.75em 1em;
+            font-size: 80%;
+        }
+        input:not([type="submit"]), select, textarea {
+            height: calc($gap * 2);
+            border-radius: calc($gap / 2);
+            border: 0;
+            outline: 2px solid #d9d9d9;
+            &:focus {
+                outline: 2px solid $red;
+            }
+            &[type="date"]::-webkit-inner-spin-button {
+                display: none;
+            }
+        }
+        select {
+            option {
+                &:checked {
+                    background-color: $red;
+                    color: $white;
+                }
+                &::selection {
+                    background-color: $red;
+                    color: $white;
+                }
+            }
+        }
+        textarea {
+            height: calc($gap * 10);
+        }
+        input[type="submit"].button {
+            width: fit-content;
+            background-color: $black;
+            color: $white;
+            padding: 1em 2em;
+        }
+    }
+}
+
+// carte google
+.map {
+    .mapouter {
+        position: relative;
+        text-align: right;
+        height: 500px;
+        width: 100%;
+        .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            height: 500px;
         }
     }
 }

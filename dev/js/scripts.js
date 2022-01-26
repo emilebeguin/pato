@@ -28,3 +28,60 @@ showSide.forEach(clicker => {
         sideWrapper.classList.toggle("active");
     });
 });
+
+// date d'aujourd'hui
+document.querySelector('input#date').setAttribute("value",sayToday())
+
+// options auto pour le nombre de gens
+let people = document.querySelector('select#people')
+createOptionsPeople(people, 12, "person", "people")
+
+// options auto pour l'heure
+let time = document.querySelector('select#time')
+createOptionsTime(time, "09:00", "18:00", 30)
+
+// FONCTIONS
+// nombre de gens
+function createOptionsPeople(select, number, sing, plur) {
+    for (let seats = 1; seats <= number; seats++) {
+        var option = document.createElement("option")
+        option.setAttribute("value", seats + " " + sing);
+        // 1er au singulier
+        let p; seats == 1 ? p = sing : p = plur;
+
+        option.innerHTML = seats + " " + p;
+        select.appendChild(option);
+    }
+}
+
+// heures sélectionnables
+function createOptionsTime(select, startTime, endTime, interval) {
+    startHour = parseInt(startTime.split(":")[0]);
+    startMin  = parseInt(startTime.split(":")[1]);
+    endHour   = parseInt(endTime.split(":")[0]);
+    endMin    = parseInt(endTime.split(":")[1]);
+
+    for (var hour = startHour; hour < endHour; hour++) {
+        for (var minute = 0; minute < 60; minute += interval) {
+            f_hour = hour.toString().padStart(2, '0');
+            f_min = minute.toString().padStart(2, '0')
+            var option = document.createElement("option")
+            option.setAttribute("value", f_hour + "." + f_min);
+            // default option is the first
+            if (hour == startHour && minute == 0) {
+                option.setAttribute("selected", "selected");
+            }
+            option.innerHTML = f_hour + ":" + f_min;
+            select.appendChild(option);
+        }
+    }
+}
+
+// date d'aujourd'hui pour l'input
+function sayToday() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+}

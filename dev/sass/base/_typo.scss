@@ -4,6 +4,12 @@ body {
     font-family: 'Montserrat', Georgia, 'Times New Roman', Times, serif;
     h1, h2, h3, h4 {
         font-family: 'Poppins', 'Montserrat', sans-serif;
+        text-transform: uppercase;
+    }
+    h3 {
+        font-weight: normal;
+        font-size: calc(22px + .22vw);
+        letter-spacing: .1rem;
     }
     .super {
         font-family: 'Courgette', cursive;
@@ -15,5 +21,16 @@ body {
     &::before {
         content: '\2764';
         font-size: initial;
+    }
+}
+
+.title {
+    margin: 2.5em 0;
+    .super {
+        font-size: 200%;
+    }
+    h1, h2 {
+        font-size: 300%;
+        letter-spacing: .5rem;
     }
 }

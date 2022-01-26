@@ -18,6 +18,9 @@ footer {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: .8fr 1fr;
+            @media screen and (max-width: $small-screen) {
+                grid-template-rows: unset;
+            }
             gap: $gap;
             grid-template-areas:
             "contact  twitter   gallery"
@@ -75,6 +78,8 @@ footer {
     }
     &.links {
         width: 100%;
+        padding-top: calc($gap * 2);
+        padding-bottom: $gap;
         height: fit-content;
         color: $white;
         background-color: $black;

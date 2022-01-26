@@ -3,7 +3,17 @@ body {
     position: relative;
 }
 
-.wrapper {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    &.vertical {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.wrapper-nav {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -35,7 +45,6 @@ a {
 
 aside {
     position: absolute;
-    width: 100%;
     height: 100%;
     &::before {
         content: '';
@@ -49,11 +58,55 @@ aside {
         opacity: .3;
     }
     &.active {
+        width: 100%;
         &::before {
             visibility: visible;
         }
         .side {
             right: 0;
         }
+    }
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg {
+    &.fabric {
+        background-image: url('../../img/graphics/pattern1.png');
+        background-repeat: repeat;
+    }
+    &.beige {
+        background-color: $beige;
+    }
+    &.center-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &.parallax {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 720px;
+        &#discover-1 {
+            background-image: url('../../img/photos/bg-intro-01.jpg');
+        }
+        &#discover-2 {
+            background-image: url('../../img/photos/bg-intro-04.jpg');
+        }
+    }
+    &.upcoming {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../../img/photos/bg-event-01.jpg');
+    }
+    &.dark {
+        color: $white;
     }
 }

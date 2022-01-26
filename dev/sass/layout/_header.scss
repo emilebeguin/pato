@@ -1,16 +1,44 @@
-.full {
-    height: 100vh;
-}
-
-.half {
-    height: 50vh;
-}
-
-.contact header {
-    background-image: url(../../img/photos/heading-page-03.jpg);
+header {
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
-    position: relative;
-    @include overlay-after ($bg: $black, $opacity: .6);
+    z-index: -3;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &.full {
+        height: 100vh;
+    }
+    &.half {
+        height: 50vh;
+    }
+}
+
+.contact {
+    header {
+        background-image: url(../../img/photos/heading-page-03.jpg);
+    }
+}
+
+.home {
+    header {
+        background-image: url(../../img/photos/slide1-01.jpg);
+        .title {
+            p {
+                font-size: 300%;
+                @include animation ($nom: down, $duree: .8s)
+            }
+            h1, h2, h3 {
+                font-size: 600%;
+                letter-spacing: .4rem;
+                @include animation ($nom: up, $duree: 1.2s, $delai: .6s)
+            }
+            .button {
+                @include animation ($nom: zoom, $duree: .8s, $delai: 1.2s)
+            }
+        }
+    }
 }
