@@ -351,7 +351,7 @@
                         width: $gap;
                     }
                     input {
-                        width: 100%;
+                        width: auto;
                         max-width: 20rem;
                         @media screen and (max-width: $small-screen) {
                             width: 15rem;

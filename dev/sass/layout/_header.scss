@@ -19,13 +19,13 @@ header {
 
 .contact {
     header {
-        background-image: url(../../img/photos/heading-page-03.jpg);
+        background-image: url(../img/photos/heading-page-03.jpg);
     }
 }
 
 .home {
     header {
-        background-image: url(../../img/photos/slide1-01.jpg);
+        background-image: url(../img/photos/slide1-01.jpg);
         .title {
             p {
                 @include animation ($nom: down, $duree: .8s)
