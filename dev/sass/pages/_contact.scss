@@ -21,11 +21,6 @@
             margin: $gap 0;
         }
     }
-    .mapouter {
-        box-sizing: content-box;
-        border: calc($gap / 2) solid $white;
-        border-radius: $gap;
-    }
     form {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

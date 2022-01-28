@@ -1,0 +1,34 @@
+// une carte horizontale flexée image/texte qui devient verticale en smallscreen
+.card {
+    background-color: $white;
+    color: $dark;
+    border-radius: $gap;
+    display: flex;
+    &>* {
+        width: 50%;
+    }
+    // devient verticale en small-screen (valeur par défaut du mixin)
+    @include convert-to-vertical($resize-items: full);
+    .img-wrapper {
+        border-radius: $gap 0 0 $gap;
+        @media screen and (max-width: $small-screen) {
+            border-radius: $gap $gap 0 0;
+        }
+        // bandeau sur le côté qui utilise flex
+        @include side-ribbon;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: calc($gap * 3) 0 $gap;
+        p {
+            margin: $gap;
+        }
+    }
+}

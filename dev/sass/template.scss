@@ -1,14 +1,32 @@
-@import "base/reset";
-
+// helpers
 @import "helpers/mixins";
 @import "helpers/variables";
-@import "base/typo";
 
-@import "layout/components";
+// base
+@import "base/reset";
+@import "base/typo";
+@import "base/root";
+
+// components
+@import "components/burger";
+@import "components/buttons";
+@import "components/forms";
+@import "components/gallery";
+@import "components/icons";
+@import "components/titles";
+@import "components/sliders";
+@import "components/flexcard";
+@import "components/counter";
+
+// embedded
+@import "embedded/map";
+
+// layouts
 @import "layout/footer";
 @import "layout/general";
 @import "layout/header";
 @import "layout/navigation";
 
+// pages
 @import "pages/home";
 @import "pages/contact";

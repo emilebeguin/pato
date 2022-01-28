@@ -92,7 +92,7 @@
                 // h3 {min-height: 2em;}
             }
         }
-        .text {
+        .text.aerie {
             align-items: center;
             p:not(.super) {
                 margin: 2.5em auto;
@@ -166,55 +166,13 @@
         }
         &.upcoming {
             .card {
-                background-color: $white;
-                color: $dark;
-                border-radius: $gap;
-                display: flex;
-                &>* {
-                    width: 50%;
-                }
-                @include convert-to-vertical($resize-items: full);
                 .img-wrapper {
-                    border-radius: $gap 0 0 $gap;
-                    @media screen and (max-width: $small-screen) {
-                        border-radius: $gap $gap 0 0;
-                    }
-                    @include side-ribbon;
                     .side-ribbon {
                         background-color: rgba($color: $red, $alpha: .6);
                         color: $white;
                     }
-                    img {
-                        width: 100%;
-                        object-fit: cover;
-                    }
                 }
                 .text {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    padding: calc($gap * 3) 0 $gap;
-                    p {
-                        margin: $gap;
-                    }
-                    .counter {
-                        width: 90%;
-                        display: grid;
-                        grid-template-columns: repeat(4, 1fr);
-                        grid-template-rows: 60% 40%;
-                        grid-auto-flow: column;
-                        text-align: center;
-                        font-weight: bold;
-                        p:nth-of-type(2n+1) {
-                            font-size: calc($relative-title * 2.5);
-                            color: $red;
-                        }
-                        p:nth-of-type(2n) {
-                            font-size: calc($relative-title);
-                            color: $grey;
-                        }
-                    }
                     .button {
                         text-align: left;
                     }
@@ -230,134 +188,17 @@
                 }
             }
         }
-        &.reviews-slider {
-            display: flex;
-            align-items: center;
-            .review {
-                width: 75%;
-                @media screen and (max-width: $smartphone) {
-                    width: 100%;
-                }
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: $dark;
-                text-align: center;
-                .img-wrapper {
-                    border-radius: 999px;
-                    overflow: hidden;
-                    width: fit-content;
-                    height: fit-content;
-                    border: calc($gap / 4) solid $red;
-                    margin: calc($gap *2);
-                    img {
-                        height: calc($gap * 8);
-                    }
-                }
-                figure {
-                    &>* {
-                        margin: calc($gap / 2);
-                    }
-                    .stars {
-                        --percent: calc(var(--rating) / 5 * 100%);
-                        
-                        display: inline-block;
-                        font-size: calc($gap * 2);
-                        // font-family: Times;
-                        line-height: 1;
-                        
-                        &::before {
-                          content: '★★★★★';
-                          letter-spacing: 3px;
-                          background: linear-gradient(
-                              90deg,
-                              $red var(--percent),
-                              $grey var(--percent));
-                          background-clip: text;
-                          -webkit-text-fill-color: transparent;
-                        }
-                    }
-                }
-            }
-        }
         &#discover-2 {
             // cause d'étranges problèmes de hover
             // @include overlay-before ($bg: $black);
             .title {
                 z-index: 3;
             }
-            .play-button {
-                position: relative;
-                width: calc($gap * 4);
-                height: calc($gap * 4);
-                display: block;
-                border-radius: 999px;
-                padding: 0;
-                margin: 0 auto;
-                user-select: none;
-                background-color: $white;
-                @include transition-eclair;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-40%, -50%);
-                    display: block;
-                    border-color: transparent transparent transparent $black;
-                    border-style: solid;
-                    border-width: .6rem 0 .6rem 1rem;
-                    @include transition-eclair;
-                }
-                &:hover {
-                    cursor: pointer;
-                    background-color: rgba($color: $red, $alpha: .6);
-                    transform: scale(120%);
-                    &::after {
-                        border-color: transparent transparent transparent $white;
-                    }
-                }
-            }
         }
         &.latest {
             flex-wrap: wrap;
             .title {
                 flex-basis: 100%;
-            }
-        }
-        &.sign-up {
-            form {
-                display: flex;
-                align-items: center;
-                @include convert-to-vertical ($resize-items: full, $gap: .75rem);
-                h3 {
-                    width: fit-content;
-                    text-align: center;
-                    margin-right: -.4rem;
-                    width: 20rem;
-                }
-                .input:first-of-type {
-                    position: relative;
-                    max-width: fit-content;
-                    &::after {
-                        content: "\f0e0";
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        right: 1.5em;
-                        color: $grey;
-                        font-family: FontAwesome;
-                        margin-left: calc (0 - $gap);
-                        width: $gap;
-                    }
-                    input {
-                        width: auto;
-                        max-width: 20rem;
-                        @media screen and (max-width: $small-screen) {
-                            width: 15rem;
-                        }
-                    }
-                }
             }
         }
     }

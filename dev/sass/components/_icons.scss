@@ -1,0 +1,33 @@
+// utilise le mixin fontawesome-list qui retire les puces standard
+// et les remplace par des :before
+ul {
+    @include fontawesome-list;
+    li {                 
+        &.place {
+            &::before {
+                content: "\f041";
+            }
+        }
+        &.phone {
+            &::before {
+                content: "\f095";
+            }
+        }
+        &.mail {
+            &::before {
+                content: "\f0e0";
+            }
+        }
+    }
+}
+
+// introduit un caractère unicode dans le texte
+// fontawesome peut aussi être utilisé
+span.heart {
+    font-size: 0;
+    &::before {
+        content: '\2764';
+        // font-family: FontAwesome;
+        font-size: initial;
+    }
+}

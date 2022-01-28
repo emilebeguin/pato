@@ -1,0 +1,50 @@
+.reviews-slider {
+    display: flex;
+    align-items: center;
+    .review {
+        width: 75%;
+        @media screen and (max-width: $smartphone) {
+            width: 100%;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $dark;
+        text-align: center;
+        .img-wrapper {
+            border-radius: 999px;
+            overflow: hidden;
+            width: fit-content;
+            height: fit-content;
+            border: calc($gap / 4) solid $red;
+            margin: calc($gap *2);
+            img {
+                height: calc($gap * 8);
+            }
+        }
+        figure {
+            &>* {
+                margin: calc($gap / 2);
+            }
+            .stars {
+                --percent: calc(var(--rating) / 5 * 100%);
+                
+                display: inline-block;
+                font-size: calc($gap * 2);
+                // font-family: Times;
+                line-height: 1;
+                
+                &::before {
+                  content: '★★★★★';
+                  letter-spacing: 3px;
+                  background: linear-gradient(
+                      90deg,
+                      $red var(--percent),
+                      $grey var(--percent));
+                  background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+}
