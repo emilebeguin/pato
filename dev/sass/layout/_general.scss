@@ -87,7 +87,7 @@ aside {
 
 .bg {
     &.fabric {
-        background-image: url('../../img/graphics/pattern1.png');
+        background-image: url('../img/graphics/pattern1.png');
         background-repeat: repeat;
     }
     &.beige {
@@ -104,17 +104,17 @@ aside {
         background-attachment: fixed;
         height: 720px;
         &#discover-1 {
-            background-image: url('../../img/photos/bg-intro-01.jpg');
+            background-image: url('../img/photos/bg-intro-01.jpg');
         }
         &#discover-2 {
-            background-image: url('../../img/photos/bg-intro-04.jpg');
+            background-image: url('../img/photos/bg-intro-04.jpg');
         }
     }
     &.upcoming {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url('../../img/photos/bg-event-01.jpg');
+        background-image: url('../img/photos/bg-event-01.jpg');
     }
     &.dark {
         color: $white;

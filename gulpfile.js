@@ -38,12 +38,18 @@ var browserSync = require('browser-sync').create();
 //   TASKS   //
 gulp.task('make-sass', function() {
     return gulp.src(`${my.dev.css}/*.scss`)
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer())
+        // add sourcemap file
         .pipe(sourcemaps.init())
+        // compress scss
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        // cross-browser prefixes (-webkit-, -moz-, etc.) 
+        .pipe(autoprefixer())
+        // rename to .min.css
         .pipe(rename(function (path) {
-            path.extname = ".min.css";
+            path.basename += ".min";
+            
         }))
+        // write map and css in prod/css
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(`${my.prod.css}`));
 });
