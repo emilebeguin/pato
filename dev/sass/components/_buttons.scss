@@ -1,0 +1,81 @@
+// Affecte tous les boutons (classe .button)
+// -----------------------
+// type .look
+// HTML | <a href="#" class="button look">See our menu</a>
+// ┌──────────────┐
+// │ See our menu │
+// └──────────────┘
+// -----------------------
+// Type .go
+// HTML | <a href="#" class="button go">Our story</a>
+// Our story  →
+.button {
+    padding: $gap calc(1em * 2);
+    border-radius: calc(1em / 2);
+    text-transform: uppercase;
+    &.look {
+        color: $red;
+        background-color: $white;
+        @include hoverable($background: true);
+    }
+    &.go {
+        @include hoverable;
+        padding: calc(1em * 2) 0;
+        &::after {
+            content: '→';
+            padding-left: 1em;
+        }
+    }
+}
+
+// les boutons de la section menu en grid
+// se positionnent au-dessus de leur conteneur
+.table-layout {
+    .img-wrapper {
+        position: relative;
+        .button {
+            position: absolute;
+            font-size: 125%;
+            font-weight: normal;
+            color: $dark;
+            &:hover {
+                color: $white;
+            }
+        }        
+    }
+
+}
+
+// un bouton play (▷) en pur css
+.play-button {
+    position: relative;
+    width: calc($gap * 4);
+    height: calc($gap * 4);
+    display: block;
+    border-radius: 999px;
+    padding: 0;
+    margin: 0 auto;
+    user-select: none;
+    background-color: $white;
+    @include transition-eclair;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-40%, -50%);
+        display: block;
+        border-color: transparent transparent transparent $black;
+        border-style: solid;
+        border-width: .6rem 0 .6rem 1rem;
+        @include transition-eclair;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: rgba($color: $red, $alpha: .6);
+        transform: scale(120%);
+        &::after {
+            border-color: transparent transparent transparent $white;
+        }
+    }
+}

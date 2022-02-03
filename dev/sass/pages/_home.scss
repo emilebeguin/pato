@@ -7,25 +7,8 @@
         }
     }
     div.container, article, div.subsection {
-        display: flex;
-        &.two-elements, &.three-elements, &.four-elements,
+        // texte et image côte à côte
         &.text-right, &.text-left {
-            @include convert-to-vertical($resize-items: full, $screen: $tablet);
-        }
-        &.two-elements {
-            gap: calc($gap * 2.5);
-        }
-        &.three-elements {
-            gap: calc($gap * 1.75);
-        }
-        &.four-elements {
-            gap: calc($gap);
-        }
-        &.text-right, &.text-left {
-            gap: calc($gap * 8);
-            @media screen and (max-width: $tablet) {
-                gap: calc($gap * 2);
-            }
             align-items: center;
             .text {
                 text-align: center;
@@ -36,6 +19,7 @@
                 }
             }
         }
+        // texte en bas
         &.text-below {
             .text {
                 .title {
@@ -46,53 +30,14 @@
                     }
                 }
             }
-
             .pic {
                 .soft {
                     aspect-ratio: 16/9;
                 }
             }
         }
-        &.text-right, &.text-left {
-            .text {
-                width: 60%;
-                p {
-                    width: 80%;
-                }
-                @media screen and (max-width: $tablet) {
-                    width: 100%;
-                }
-            }
-            .pic {
-                width: 40%;
-                @media screen and (max-width: $tablet) {
-                    width: 65%;
-                }
-            }
-        }
-        &.text-right {
-            .text {order: 0}
-            .pic {order: 1}
-        }
-        &.text-left {
-            .text {order: 1}
-            .pic {order: 0}
-        }
-        &.text-below {
-            flex-direction: column;
-            .text {order: 1}
-            .pic {order: 0}
-            .text {
-                p:not(.super) {
-                    min-height: 5em;
-                    @media screen and (max-width: $tablet) {
-                        min-height: 1em;
-                    }
-                }
-                // h3 {min-height: 2em;}
-            }
-        }
-        .text {
+        // pour avoir un texte plus aéré
+        .text.aerie {
             align-items: center;
             p:not(.super) {
                 margin: 2.5em auto;
@@ -100,14 +45,8 @@
         }
         .pic {
             .img-wrapper {
-                width: 100%;
                 overflow: hidden;
-                &.soft {
-                    border-radius: $gap;
-                }
                 img {
-                    display: block;
-                    width: 100%;
                     @include transition-eclair;
                 }
                 &:hover {
@@ -119,108 +58,22 @@
         }
     }
     section {
+        // toutes les sections sont plus aérées
         padding: calc($gap * 8);
         @media screen and (max-width: $tablet) {
             padding: calc($gap * 4);
         }
-        .table-layout {
-            display: grid;
-            gap: calc($gap * 2);
-            grid-template-areas:
-            "one   two     ."
-            "one   two     ."
-            "three three   ."
-            ;
-            @media screen and (max-width: $tablet) {
-                grid-template-areas:
-                "one   two"
-                "one   two"
-                "three three"
-                ;
-                .img-wrapper {
-                    &:nth-of-type(n+4) {
-                        grid-column: span 2;
-                    }
-                }
-            }
-            .img-wrapper {
-                &:nth-of-type(1) { grid-area: one; }
-                &:nth-of-type(2) { grid-area: two; }
-                &:nth-of-type(3) { grid-area: three; }
-                width: 100%;
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                .button {
-                    position: absolute;
-                    font-size: 125%;
-                    font-weight: normal;
-                    color: $dark;
-                    &:hover {
-                        color: $white;
-                    }
-                }
-            }
-        }
+        // évènements à venir
         &.upcoming {
-            .card {
-                background-color: $white;
-                color: $dark;
-                border-radius: $gap;
-                display: flex;
-                &>* {
-                    width: 50%;
-                }
-                @include convert-to-vertical($resize-items: full);
-                .img-wrapper {
-                    border-radius: $gap 0 0 $gap;
-                    @media screen and (max-width: $small-screen) {
-                        border-radius: $gap $gap 0 0;
-                    }
-                    @include side-ribbon;
-                    .side-ribbon {
-                        background-color: rgba($color: $red, $alpha: .6);
-                        color: $white;
-                    }
-                    img {
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                }
-                .text {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    padding: calc($gap * 3) 0 $gap;
-                    p {
-                        margin: $gap;
-                    }
-                    .counter {
-                        width: 90%;
-                        display: grid;
-                        grid-template-columns: repeat(4, 1fr);
-                        grid-template-rows: 60% 40%;
-                        grid-auto-flow: column;
-                        text-align: center;
-                        font-weight: bold;
-                        p:nth-of-type(2n+1) {
-                            font-size: calc($relative-title * 2.5);
-                            color: $red;
-                        }
-                        p:nth-of-type(2n) {
-                            font-size: calc($relative-title);
-                            color: $grey;
-                        }
-                    }
-                    .button {
-                        text-align: left;
-                    }
-                }
+            .side-ribbon {
+                background-color: rgba($color: $red, $alpha: .6);
+                color: $white;
+            }
+            .button {
+                text-align: left;
             }
         }
+        // réservation de tables
         &.book-table {
             .text-right, .text-left {
                 @include convert-to-vertical ($resize-items: full);
@@ -230,134 +83,19 @@
                 }
             }
         }
-        &.reviews-slider {
-            display: flex;
-            align-items: center;
-            .review {
-                width: 75%;
-                @media screen and (max-width: $smartphone) {
-                    width: 100%;
-                }
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: $dark;
-                text-align: center;
-                .img-wrapper {
-                    border-radius: 999px;
-                    overflow: hidden;
-                    width: fit-content;
-                    height: fit-content;
-                    border: calc($gap / 4) solid $red;
-                    margin: calc($gap *2);
-                    img {
-                        height: calc($gap * 8);
-                    }
-                }
-                figure {
-                    &>* {
-                        margin: calc($gap / 2);
-                    }
-                    .stars {
-                        --percent: calc(var(--rating) / 5 * 100%);
-                        
-                        display: inline-block;
-                        font-size: calc($gap * 2);
-                        // font-family: Times;
-                        line-height: 1;
-                        
-                        &::before {
-                          content: '★★★★★';
-                          letter-spacing: 3px;
-                          background: linear-gradient(
-                              90deg,
-                              $red var(--percent),
-                              $grey var(--percent));
-                          background-clip: text;
-                          -webkit-text-fill-color: transparent;
-                        }
-                    }
-                }
-            }
-        }
+        // second backgroud parallax
         &#discover-2 {
             // cause d'étranges problèmes de hover
             // @include overlay-before ($bg: $black);
             .title {
                 z-index: 3;
             }
-            .play-button {
-                position: relative;
-                width: calc($gap * 4);
-                height: calc($gap * 4);
-                display: block;
-                border-radius: 999px;
-                padding: 0;
-                margin: 0 auto;
-                user-select: none;
-                background-color: $white;
-                @include transition-eclair;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-40%, -50%);
-                    display: block;
-                    border-color: transparent transparent transparent $black;
-                    border-style: solid;
-                    border-width: .6rem 0 .6rem 1rem;
-                    @include transition-eclair;
-                }
-                &:hover {
-                    cursor: pointer;
-                    background-color: rgba($color: $red, $alpha: .6);
-                    transform: scale(120%);
-                    &::after {
-                        border-color: transparent transparent transparent $white;
-                    }
-                }
-            }
         }
+        // articles du blog
         &.latest {
             flex-wrap: wrap;
             .title {
                 flex-basis: 100%;
-            }
-        }
-        &.sign-up {
-            form {
-                display: flex;
-                align-items: center;
-                @include convert-to-vertical ($resize-items: full, $gap: .75rem);
-                h3 {
-                    width: fit-content;
-                    text-align: center;
-                    margin-right: -.4rem;
-                    width: 20rem;
-                }
-                .input:first-of-type {
-                    position: relative;
-                    max-width: fit-content;
-                    &::after {
-                        content: "\f0e0";
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        right: 1.5em;
-                        color: $grey;
-                        font-family: FontAwesome;
-                        margin-left: calc (0 - $gap);
-                        width: $gap;
-                    }
-                    input {
-                        width: auto;
-                        max-width: 20rem;
-                        @media screen and (max-width: $small-screen) {
-                            width: 15rem;
-                        }
-                    }
-                }
             }
         }
     }

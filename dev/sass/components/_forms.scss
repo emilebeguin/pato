@@ -1,0 +1,145 @@
+// formulaires en 2 colonnes
+// avec chaque paire label - input groupée dans une div
+form {
+    gap: $gap;
+    // Name           Mail
+    // ┌──────────┐   ┌──────────┐
+    // │ Name     │   │ Mail     │
+    // └──────────┘   └──────────┘
+    //  Phone          Birthdate
+    // ┌──────────┐   ┌──────────┐
+    // │ Phone    │   │ Birthdate│
+    // └──────────┘   └──────────┘
+    &.two-cols {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @media screen and (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+    }
+    // Name           Mail          Lorem
+    // ┌──────────┐   ┌──────────┐  ┌──────────┐
+    // │ Name     │   │ Mail     │  │ Lorem    │
+    // └──────────┘   └──────────┘  └──────────┘
+    // Phone          Birthdate     Ipsum
+    // ┌──────────┐   ┌──────────┐  ┌──────────┐
+    // │ Phone    │   │ Birthdate│  │ Ipsum    │
+    // └──────────┘   └──────────┘  └──────────┘
+    &.three-cols {
+        grid-template-columns: repeat(3, 1fr);
+        @media screen and (max-width: $tablet) {
+            // je ne comprends pas pourquoi
+            // cette ligne ne s'applique pas
+            grid-template-columns: 1fr;
+            // du coup je fais ça :
+            div {
+                grid-column: span 3;
+            }
+        }
+        margin: 0 calc($gap * 7.5);
+        @media screen and (max-width: $small-screen) {
+            margin: 0;
+        }
+        .message {
+            grid-column: span 3;
+        }
+    }
+    div {
+        padding: .5rem;
+        flex-basis: 30%;
+        display: flex;
+        flex-direction: column;
+        // le dernier élémentprend les 2 colonnes restantes
+        &:last-of-type {
+            grid-column: 1/-1;
+            align-items: center;
+        }
+        label {
+            text-align: left;
+            font-size: 80%;
+            margin-bottom: calc($gap / 3);
+        }
+        input, select, textarea {
+            font: inherit;
+            padding: 1.75em 1em;
+            font-size: 80%;
+        }
+        // le datepicker perd visiblement sa largeur
+        // s'il n'a pas de border
+        input[type="date"] { width: 100%; }
+        input:not([type="submit"]), select, textarea {
+            height: calc($gap * 2);
+            border-radius: calc($gap / 2);
+            background-color: $white;
+            // l'outline sert de border
+            // (sinon l'élément grandit au focus)
+            border: 0;
+            outline: 2px solid #d9d9d9;
+            &:focus {
+                border: 0;
+                outline: 2px solid $red;
+            }
+            &[type="date"]::-webkit-inner-spin-button {
+                display: none;
+            }
+        }
+        select {
+            option {
+                &:checked {
+                    background-color: $red;
+                    color: $white;
+                }
+                &::selection {
+                    background-color: $red;
+                    color: $white;
+                }
+            }
+        }
+        textarea {
+            height: calc($gap * 10);
+        }
+        // le submit hérite de la classe button
+        input[type="submit"].button {
+            width: fit-content;
+            background-color: $black; // button look
+            color: $white;
+            padding: 1em 2em;
+        }
+    }
+}
+
+.sign-up {
+    form {
+        display: flex;
+        align-items: center;
+        @include convert-to-vertical ($resize-items: full, $gap: .75rem);
+        h3 {
+            width: fit-content;
+            text-align: center;
+            margin-right: -.4rem;
+            width: 20rem;
+        }
+        .input:first-of-type {
+            position: relative;
+            max-width: fit-content;
+            &::after {
+                content: "\f0e0";
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 1.5em;
+                color: $grey;
+                font-family: FontAwesome;
+                margin-left: calc (0 - $gap);
+                width: $gap;
+            }
+            input {
+                width: auto;
+                max-width: 20rem;
+                @media screen and (max-width: $small-screen) {
+                    width: 15rem;
+                }
+            }
+        }
+    }
+}

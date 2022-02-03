@@ -1,0 +1,43 @@
+// Exemple de burger menu qui permet d'afficher une nav
+// en lui donnant une classe .active
+// ----------------------------------------------------
+// HTML
+//      <div class="burger"></div>
+// ----------------------------------------------------
+// JS minimal
+// let burger = document.querySelector('.burger');
+// let clickMeToShowNav = 
+//     document.querySelectorAll('.burger');
+// clickMeToShowNav.forEach(clicker => {
+//     clicker.addEventListener('click', function() {
+//         <navigation>.classList.toggle("active");
+//     });
+// });
+// ----------------------------------------------------
+
+.burger {
+    position: relative;
+    width: 5rem;
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 1.65rem;
+        height: 2px;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        @include transition-eclair;
+    }
+    &:before {
+        top: calc(55% - 1px);
+    }
+    &:after {
+        top: calc(45% - 1px);
+    }
+    &:hover {
+        cursor: pointer;
+        &:before, &:after {
+            background-color: $red;
+        }
+    }
+}

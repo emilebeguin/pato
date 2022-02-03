@@ -3,28 +3,27 @@
     section {
         height: fit-content;
         .container {
-            margin: calc($gap * 7.5) auto;
+            margin: calc($gap * 5) auto;
+            padding: 0 calc($gap * 5);
             @media screen and (max-width: $small-screen) {
                 max-width: $tablet;
-                margin: calc($gap * 3.75) auto;
+                margin: calc($gap * 2.5) auto;
+                padding: 0 calc($gap * 2.5);
             }
             @media screen and (max-width: $tablet) {
                 max-width: calc($smartphone - ($gap * 4));
-                margin: calc($gap * 2) auto;
+                margin: calc($gap * 1.25) auto;
+                padding: 0 calc($gap * 1.25);
             }
             @media screen and (max-width: $smartphone) {
                 max-width: 400px;
                 margin: calc($gap) auto;
+                padding: 0;
             }
         }
         h3 {
             margin: $gap 0;
         }
-    }
-    .mapouter {
-        box-sizing: content-box;
-        border: calc($gap / 2) solid $white;
-        border-radius: $gap;
     }
     form {
         display: grid;
@@ -47,49 +46,52 @@
         }
     }
     .info {
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            @media screen and (max-width: $tablet) {
-                flex-direction: column;
-            }
-            div {
-                width: 30%;
+        margin: 0 calc($gap * 3);
+        @media screen and (max-width: $tablet) {
+            margin: 0 calc($gap * 6);
+        }
+    }
+    .container {
+        justify-content: space-between;
+        @media screen and (max-width: $tablet) {
+            flex-direction: column;
+        }
+        div {
+            h3 {
+                color: $dark;
                 @media screen and (max-width: $tablet) {
-                    width: 50%;
-                    margin-left: 10%;
-                    h3 {
-                        text-align: left;
-                    }
+                    text-align: left;
                 }
-                h3 {
-                    color: $dark;
-                    &::before {
-                        font-family: FontAwesome;
-                        display: inline-block;
-                        margin-left: -2rem;
-                        width: $gap;
-                        margin-right: $gap;
-                    }
+                &::before {
+                    font-family: FontAwesome;
+                    display: inline-block;
+                    margin-left: -2rem;
+                    width: $gap;
+                    margin-right: $gap;
                 }
-                p {
-                    color: $grey;
+            }
+            p {
+                color: $grey;
+            }
+            &.place, &.info, &.phone {
+                width: 26%;
+                @media screen and (max-width: $tablet) {
+                    width: 100%;
                 }
-                &.place {
-                    h3::before {
-                        content: "\f041";
-                    }
+            }
+            &.place {
+                h3::before {
+                    content: "\f041";
                 }
-                &.phone {
-                    h3::before {
-                        content: "\f095";
-                    }
+            }
+            &.phone {
+                h3::before {
+                    content: "\f095";
                 }
-                &.clock {
-                    h3::before {
-                        content: "\f017";
-                    }
+            }
+            &.clock {
+                h3::before {
+                    content: "\f017";
                 }
             }
         }
