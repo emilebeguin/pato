@@ -7,25 +7,8 @@
         }
     }
     div.container, article, div.subsection {
-        display: flex;
-        &.two-elements, &.three-elements, &.four-elements,
+        // texte et image côte à côte
         &.text-right, &.text-left {
-            @include convert-to-vertical($resize-items: full, $screen: $tablet);
-        }
-        &.two-elements {
-            gap: calc($gap * 2.5);
-        }
-        &.three-elements {
-            gap: calc($gap * 1.75);
-        }
-        &.four-elements {
-            gap: calc($gap);
-        }
-        &.text-right, &.text-left {
-            gap: calc($gap * 8);
-            @media screen and (max-width: $tablet) {
-                gap: calc($gap * 2);
-            }
             align-items: center;
             .text {
                 text-align: center;
@@ -36,6 +19,7 @@
                 }
             }
         }
+        // texte en bas
         &.text-below {
             .text {
                 .title {
@@ -52,45 +36,7 @@
                 }
             }
         }
-        &.text-right, &.text-left {
-            .text {
-                width: 60%;
-                p {
-                    width: 80%;
-                }
-                @media screen and (max-width: $tablet) {
-                    width: 100%;
-                }
-            }
-            .pic {
-                width: 40%;
-                @media screen and (max-width: $tablet) {
-                    width: 65%;
-                }
-            }
-        }
-        &.text-right {
-            .text {order: 0}
-            .pic {order: 1}
-        }
-        &.text-left {
-            .text {order: 1}
-            .pic {order: 0}
-        }
-        &.text-below {
-            flex-direction: column;
-            .text {order: 1}
-            .pic {order: 0}
-            .text {
-                p:not(.super) {
-                    min-height: 5em;
-                    @media screen and (max-width: $tablet) {
-                        min-height: 1em;
-                    }
-                }
-                // h3 {min-height: 2em;}
-            }
-        }
+        // pour avoir un texte plus aéré
         .text.aerie {
             align-items: center;
             p:not(.super) {
@@ -99,14 +45,8 @@
         }
         .pic {
             .img-wrapper {
-                width: 100%;
                 overflow: hidden;
-                &.soft {
-                    border-radius: $gap;
-                }
                 img {
-                    display: block;
-                    width: 100%;
                     @include transition-eclair;
                 }
                 &:hover {
@@ -118,25 +58,22 @@
         }
     }
     section {
+        // toutes les sections sont plus aérées
         padding: calc($gap * 8);
         @media screen and (max-width: $tablet) {
             padding: calc($gap * 4);
         }
+        // évènements à venir
         &.upcoming {
-            .card {
-                .img-wrapper {
-                    .side-ribbon {
-                        background-color: rgba($color: $red, $alpha: .6);
-                        color: $white;
-                    }
-                }
-                .text {
-                    .button {
-                        text-align: left;
-                    }
-                }
+            .side-ribbon {
+                background-color: rgba($color: $red, $alpha: .6);
+                color: $white;
+            }
+            .button {
+                text-align: left;
             }
         }
+        // réservation de tables
         &.book-table {
             .text-right, .text-left {
                 @include convert-to-vertical ($resize-items: full);
@@ -146,6 +83,7 @@
                 }
             }
         }
+        // second backgroud parallax
         &#discover-2 {
             // cause d'étranges problèmes de hover
             // @include overlay-before ($bg: $black);
@@ -153,6 +91,7 @@
                 z-index: 3;
             }
         }
+        // articles du blog
         &.latest {
             flex-wrap: wrap;
             .title {

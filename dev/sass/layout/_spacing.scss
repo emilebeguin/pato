@@ -1,0 +1,107 @@
+div.container, article, div.subsection {
+    display: flex;
+    // deux, trois ou quatre subdivisions de section
+    &.two-elements {
+        gap: calc($gap * 2.5);
+    }
+    &.three-elements {
+        gap: calc($gap * 1.75);
+    }
+    &.four-elements {
+        gap: calc($gap);
+    }
+    // texte et image côte à côte
+    &.text-right, &.text-left {
+        gap: calc($gap * 8);
+        @media screen and (max-width: $tablet) {
+            gap: calc($gap * 2);
+        }
+        align-items: center;
+        .text {
+            text-align: center;
+            width: 60%;
+            p {
+                width: 80%;
+            }
+            @media screen and (max-width: $tablet) {
+                width: 100%;
+            }
+        }
+        .pic {
+            width: 40%;
+            @media screen and (max-width: $tablet) {
+                width: 65%;
+            }
+            .soft {
+                aspect-ratio: 1;
+            }
+        }
+    }
+    // deviennent verticales au palier tablet
+    &.two-elements, &.three-elements, &.four-elements,
+    &.text-right, &.text-left {
+        @include convert-to-vertical($resize-items: full, $screen: $tablet);
+    }
+    &.text-below {
+        flex-direction: column;
+        .text {
+            .title {
+                align-items: flex-start;
+                padding-left: 0;
+                h1, h2, h3 {
+                    text-align: left;
+                }
+            }
+            p:not(.super) {
+                min-height: 5em;
+                @media screen and (max-width: $tablet) {
+                    min-height: 1em;
+                }
+            }
+            // h3 {min-height: 2em;}
+        }
+    }
+    // ordre texte-image,
+    // peut être inversé
+    &.text-right {
+        .text {order: 0}
+        .pic {order: 1}
+    }
+    &.text-left {
+        .text {order: 1}
+        .pic {order: 0}
+    }
+    &.text-below {
+        .text {order: 1}
+        .pic {order: 0}
+    }
+    // images
+    .pic {
+        .img-wrapper {
+            width: 100%;
+            &.soft {
+                border-radius: $gap;
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    // pour les sections hors de home principalement
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @media screen and (max-width: $tablet) {
+            flex-direction: column;
+        }
+        div {
+            width: 30%;
+            @media screen and (max-width: $tablet) {
+                width: 50%;
+                margin-left: 10%;
+            }
+        }
+    }
+}

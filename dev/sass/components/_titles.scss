@@ -24,7 +24,7 @@ body {
         letter-spacing: .1rem;
         font-size: calc($relative-title);
         @media screen and (max-width: $tablet) {
-            font-size: calc($relative-title /2);
+            font-size: calc($relative-title);
         }
     }
     .super {
